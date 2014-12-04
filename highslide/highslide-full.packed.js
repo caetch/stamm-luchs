@@ -1,4 +1,4 @@
-/** 
+/**
  * Name:    Highslide JS
  * Version: 4.1.12 (2011-03-28)
  * Config:  default +events +unobtrusive +imagemap +slideshow +positioning +transitions +viewport +thumbstrip +inline +ajax +iframe +flash +packed

@@ -1,4 +1,4 @@
-/** 
+/**
  * Name:    Highslide JS
  * Version: 4.1.12 (2011-03-28)
  * Config:  default +events +unobtrusive +imagemap +slideshow +positioning +transitions +viewport +thumbstrip +inline +ajax +iframe +flash
@@ -17,10 +17,10 @@ lang : {
 	creditsText : 'Powered by <i>Highslide JS</i>',
 	creditsTitle : 'Go to the Highslide JS homepage',
 	previousText : 'Previous',
-	nextText : 'Next', 
+	nextText : 'Next',
 	moveText : 'Move',
-	closeText : 'Close', 
-	closeTitle : 'Close (esc)', 
+	closeText : 'Close',
+	closeTitle : 'Close (esc)',
 	resizeTitle : 'Resize',
 	playText : 'Play',
 	playTitle : 'Play slideshow (spacebar)',
@@ -33,7 +33,7 @@ lang : {
 	number: 'Image %1 of %2',
 	restoreTitle : 'Click to close image, click and drag to move. Use arrow keys for next and previous.'
 },
-// See http://highslide.com/ref for examples of settings  
+// See http://highslide.com/ref for examples of settings
 graphicsDir : 'highslide/graphics/',
 expandCursor : 'zoomin.cur', // null disables
 restoreCursor : 'zoomout.cur', // null disables
@@ -47,7 +47,7 @@ zIndexCounter : 1001, // adjust to other absolutely positioned elements
 loadingOpacity : 0.75,
 allowMultipleInstances: true,
 numberOfImagesToPreload : 5,
-outlineWhileAnimating : 2, // 0 = never, 1 = always, 2 = HTML only 
+outlineWhileAnimating : 2, // 0 = never, 1 = always, 2 = HTML only
 outlineStartOffset : 3, // ends at 10
 padToMinWidth : false, // pad the popup width to make room for wide caption
 fullExpandPosition : 'bottom right',
@@ -163,10 +163,10 @@ overrides : [
 	'numberPosition',
 	'transitions',
 	'dimmingOpacity',
-	
+
 	'width',
 	'height',
-	
+
 	'contentId',
 	'allowWidthReduction',
 	'allowHeightReduction',
@@ -174,11 +174,11 @@ overrides : [
 	'maincontentId',
 	'maincontentText',
 	'maincontentEval',
-	'objectType',	
-	'cacheAjax',	
+	'objectType',
+	'cacheAjax',
 	'objectWidth',
 	'objectHeight',
-	'objectLoadTime',	
+	'objectLoadTime',
 	'swfOptions',
 	'wrapperClassName',
 	'minWidth',
@@ -233,7 +233,7 @@ createElement : function (tag, attribs, styles, parent, nopad) {
 	if (attribs) hs.extend(el, attribs);
 	if (nopad) hs.setStyles(el, {padding: 0, border: 'none', margin: 0});
 	if (styles) hs.setStyles(el, styles);
-	if (parent) parent.appendChild(el);	
+	if (parent) parent.appendChild(el);
 	return el;
 },
 
@@ -248,7 +248,7 @@ setStyles : function (el, styles) {
 			if (styles[x] > 0.99) el.style.removeAttribute('filter');
 			else el.style.filter = 'alpha(opacity='+ (styles[x] * 100) +')';
 		}
-		else el.style[x] = styles[x];		
+		else el.style[x] = styles[x];
 	}
 },
 animate: function(el, prop, opt) {
@@ -268,13 +268,13 @@ animate: function(el, prop, opt) {
 	opt.curAnim = hs.extend({}, prop);
 	for (var name in prop) {
 		var e = new hs.fx(el, opt , name );
-		
+
 		start = parseFloat(hs.css(el, name)) || 0;
 		end = parseFloat(prop[name]);
 		unit = name != 'opacity' ? 'px' : '';
-		
+
 		e.custom( start, end, unit );
-	}	
+	}
 },
 css: function(el, prop) {
 	if (el.style[prop]) {
@@ -285,24 +285,24 @@ css: function(el, prop) {
 	} else {
 		if (prop == 'opacity') prop = 'filter';
 		var val = el.currentStyle[prop.replace(/\-(\w)/g, function (a, b){ return b.toUpperCase(); })];
-		if (prop == 'filter') 
-			val = val.replace(/alpha\(opacity=([0-9]+)\)/, 
+		if (prop == 'filter')
+			val = val.replace(/alpha\(opacity=([0-9]+)\)/,
 				function (a, b) { return b / 100 });
 		return val === '' ? 1 : val;
-	} 
+	}
 },
 
 getPageSize : function () {
-	var d = document, w = window, iebody = d.compatMode && d.compatMode != 'BackCompat' 
+	var d = document, w = window, iebody = d.compatMode && d.compatMode != 'BackCompat'
 		? d.documentElement : d.body;
-	
-	var width = hs.ieLt9 ? iebody.clientWidth : 
+
+	var width = hs.ieLt9 ? iebody.clientWidth :
 			(d.documentElement.clientWidth || self.innerWidth),
 		height = hs.ieLt9 ? iebody.clientHeight : self.innerHeight;
-	
+
 	hs.page = {
 		width: width,
-		height: height,		
+		height: height,
 		scrollLeft: hs.ieLt9 ? iebody.scrollLeft : pageXOffset,
 		scrollTop: hs.ieLt9 ? iebody.scrollTop : pageYOffset
 	};
@@ -345,8 +345,8 @@ expand : function(a, params, custom, type) {
 			}
 		}
 		hs.hasHtmlExpanders = true;
-	}	
-	try {	
+	}
+	try {
 		new hs.Expander(a, params, custom, type);
 		return false;
 	} catch (e) { return true; }
@@ -357,9 +357,9 @@ htmlExpand : function(a, params, custom) {
 },
 
 getSelfRendered : function() {
-	return hs.createElement('div', { 
-		className: 'highslide-html-content', 
-		innerHTML: hs.replaceLang(hs.skin.contentWrapper) 
+	return hs.createElement('div', {
+		className: 'highslide-html-content',
+		innerHTML: hs.replaceLang(hs.skin.contentWrapper)
 	});
 },
 getElementByClass : function (el, tagName, className) {
@@ -396,7 +396,7 @@ setClickEvents : function () {
 						function() { return hs.htmlExpand(this, { objectType: t } );};
 				}
 			})();
-			els[i].hsHasSetClick = true;	
+			els[i].hsHasSetClick = true;
 		}
 	}
 	hs.getAnchors();
@@ -426,7 +426,7 @@ preloadAjax : function (e) {
 		if (hs.getParam(a, 'objectType') == 'ajax' && hs.getParam(a, 'cacheAjax'))
 			hs.push(hs.preloadTheseAjax, a);
 	}
-	
+
 	hs.preloadAjaxElement(0);
 },
 
@@ -435,7 +435,7 @@ preloadAjaxElement : function (i) {
 	var a = hs.preloadTheseAjax[i];
 	var cache = hs.getNode(hs.getParam(a, 'contentId'));
 	if (!cache) cache = hs.getSelfRendered();
-	var ajax = new hs.Ajax(a, cache, 1);	
+	var ajax = new hs.Ajax(a, cache, 1);
    	ajax.onError = function () { };
    	ajax.onLoad = function () {
    		hs.push(hs.cacheBindings, [a, cache]);
@@ -445,7 +445,7 @@ preloadAjaxElement : function (i) {
 },
 
 focusTopmost : function() {
-	var topZ = 0, 
+	var topZ = 0,
 		topmostKey = -1,
 		expanders = hs.expanders,
 		exp,
@@ -455,7 +455,7 @@ focusTopmost : function() {
 		if (exp) {
 			zIndex = exp.wrapper.style.zIndex;
 			if (zIndex && zIndex > topZ) {
-				topZ = zIndex;				
+				topZ = zIndex;
 				topmostKey = i;
 			}
 		}
@@ -468,8 +468,8 @@ getParam : function (a, param) {
 	a.getParams = a.onclick;
 	var p = a.getParams ? a.getParams() : null;
 	a.getParams = null;
-	
-	return (p && typeof p[param] != 'undefined') ? p[param] : 
+
+	return (p && typeof p[param] != 'undefined') ? p[param] :
 		(typeof hs[param] != 'undefined' ? hs[param] : null);
 },
 
@@ -504,7 +504,7 @@ dim : function(exp) {
 				owner: '',
 				onclick: function() {
 					if (hs.fireEvent(hs, 'onDimmerClick'))
-					
+
 						hs.close();
 				}
 			}, {
@@ -516,7 +516,7 @@ dim : function(exp) {
 
 	var isNew = hs.dimmer.owner == '';
 	hs.dimmer.owner += '|'+ exp.key;
-	
+
 	if (isNew) {
 		if (hs.geckoMac && hs.dimmingGeckoFix)
 			hs.setStyles(hs.dimmer, {
@@ -549,7 +549,7 @@ transit : function (adj, exp) {
 	hs.removeEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
 	try {
 		hs.upcoming = adj;
-		adj.onclick(); 		
+		adj.onclick();
 	} catch (e){
 		hs.last = hs.upcoming = null;
 	}
@@ -571,7 +571,7 @@ previous : function (el) {
 },
 
 next : function (el) {
-	return hs.previousOrNext(el, 1);	
+	return hs.previousOrNext(el, 1);
 },
 
 keyHandler : function(e) {
@@ -580,7 +580,7 @@ keyHandler : function(e) {
 	if (typeof e.target.form != 'undefined') return true; // form element has focus
 	if (!hs.fireEvent(hs, 'onKeyDown', e)) return true;
 	var exp = hs.getExpander();
-	
+
 	var op = null;
 	switch (e.keyCode) {
 		case 70: // f
@@ -607,7 +607,7 @@ keyHandler : function(e) {
 	if (op !== null) {
 		hs.removeEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
 		if (!hs.enableKeyListener) return true;
-		
+
 		if (e.preventDefault) e.preventDefault();
     	else e.returnValue = false;
     	if (exp) {
@@ -667,7 +667,7 @@ getWrapperKey : function (element, expOnly) {
 			el = el.parentNode;
 		}
 	}
-	return null; 
+	return null;
 },
 
 getExpander : function (el, expOnly) {
@@ -689,12 +689,12 @@ fireEvent : function (obj, evt, args) {
 	return obj && obj[evt] ? (obj[evt](obj, args) !== false) : true;
 },
 
-mouseClickHandler : function(e) 
-{	
+mouseClickHandler : function(e)
+{
 	if (!e) e = window.event;
 	if (e.button > 1) return true;
 	if (!e.target) e.target = e.srcElement;
-	
+
 	var el = e.target;
 	while (el.parentNode
 		&& !(/highslide-(image|move|html|resize)/.test(el.className)))
@@ -703,26 +703,26 @@ mouseClickHandler : function(e)
 	}
 	var exp = hs.getExpander(el);
 	if (exp && (exp.isClosing || !exp.isExpanded)) return true;
-		
+
 	if (exp && e.type == 'mousedown') {
 		if (e.target.form) return true;
 		var match = el.className.match(/highslide-(image|move|resize)/);
 		if (match) {
-			hs.dragArgs = { 
-				exp: exp , 
-				type: match[1], 
-				left: exp.x.pos, 
-				width: exp.x.size, 
-				top: exp.y.pos, 
-				height: exp.y.size, 
-				clickX: e.clientX, 
+			hs.dragArgs = {
+				exp: exp ,
+				type: match[1],
+				left: exp.x.pos,
+				width: exp.x.size,
+				top: exp.y.pos,
+				height: exp.y.size,
+				clickX: e.clientX,
 				clickY: e.clientY
 			};
-			
-			
+
+
 			hs.addEventListener(document, 'mousemove', hs.dragHandler);
 			if (e.preventDefault) e.preventDefault(); // FF
-			
+
 			if (/highslide-(image|html)-blur/.test(exp.content.className)) {
 				exp.focus();
 				hs.hasFocused = true;
@@ -734,31 +734,31 @@ mouseClickHandler : function(e)
 			exp.doShowHide('hidden');
 		}
 	} else if (e.type == 'mouseup') {
-		
+
 		hs.removeEventListener(document, 'mousemove', hs.dragHandler);
-		
+
 		if (hs.dragArgs) {
-			if (hs.styleRestoreCursor && hs.dragArgs.type == 'image') 
+			if (hs.styleRestoreCursor && hs.dragArgs.type == 'image')
 				hs.dragArgs.exp.content.style.cursor = hs.styleRestoreCursor;
 			var hasDragged = hs.dragArgs.hasDragged;
-			
+
 			if (!hasDragged &&!hs.hasFocused && !/(move|resize)/.test(hs.dragArgs.type)) {
 				if (hs.fireEvent(exp, 'onImageClick'))
 				exp.close();
-			} 
+			}
 			else if (hasDragged || (!hasDragged && hs.hasHtmlExpanders)) {
 				hs.dragArgs.exp.doShowHide('hidden');
 			}
-			
-			if (hs.dragArgs.exp.releaseMask) 
+
+			if (hs.dragArgs.exp.releaseMask)
 				hs.dragArgs.exp.releaseMask.style.display = 'none';
-			
+
 			if (hasDragged) hs.fireEvent(hs.dragArgs.exp, 'onDrop', hs.dragArgs);
 			hs.hasFocused = false;
 			hs.dragArgs = null;
-		
+
 		} else if (/highslide-image-blur/.test(el.className)) {
-			el.style.cursor = hs.styleRestoreCursor;		
+			el.style.cursor = hs.styleRestoreCursor;
 		}
 	}
 	return false;
@@ -769,26 +769,26 @@ dragHandler : function(e)
 	if (!hs.dragArgs) return true;
 	if (!e) e = window.event;
 	var a = hs.dragArgs, exp = a.exp;
-	if (exp.iframe) {		
-		if (!exp.releaseMask) exp.releaseMask = hs.createElement('div', null, 
-			{ position: 'absolute', width: exp.x.size+'px', height: exp.y.size+'px', 
-				left: exp.x.cb+'px', top: exp.y.cb+'px', zIndex: 4,	background: (hs.ieLt9 ? 'white' : 'none'), 
-				opacity: 0.01 }, 
+	if (exp.iframe) {
+		if (!exp.releaseMask) exp.releaseMask = hs.createElement('div', null,
+			{ position: 'absolute', width: exp.x.size+'px', height: exp.y.size+'px',
+				left: exp.x.cb+'px', top: exp.y.cb+'px', zIndex: 4,	background: (hs.ieLt9 ? 'white' : 'none'),
+				opacity: 0.01 },
 			exp.wrapper, true);
 		if (exp.releaseMask.style.display == 'none')
 			exp.releaseMask.style.display = '';
 	}
-	
+
 	a.dX = e.clientX - a.clickX;
-	a.dY = e.clientY - a.clickY;	
-	
+	a.dY = e.clientY - a.clickY;
+
 	var distance = Math.sqrt(Math.pow(a.dX, 2) + Math.pow(a.dY, 2));
 	if (!a.hasDragged) a.hasDragged = (a.type != 'image' && distance > 0)
 		|| (distance > (hs.dragSensitivity || 5));
-	
+
 	if (a.hasDragged && e.clientX > 5 && e.clientY > 5) {
 		if (!hs.fireEvent(exp, 'onDrag', a)) return false;
-		
+
 		if (a.type == 'resize') exp.resize(a);
 		else {
 			exp.moveTo(a.left + a.dX, a.top + a.dY);
@@ -801,13 +801,13 @@ dragHandler : function(e)
 wrapperMouseHandler : function (e) {
 	try {
 		if (!e) e = window.event;
-		var over = /mouseover/i.test(e.type); 
+		var over = /mouseover/i.test(e.type);
 		if (!e.target) e.target = e.srcElement; // ie
-		if (!e.relatedTarget) e.relatedTarget = 
+		if (!e.relatedTarget) e.relatedTarget =
 			over ? e.fromElement : e.toElement; // ie
 		var exp = hs.getExpander(e.target);
 		if (!exp.isExpanded) return;
-		if (!exp || !e.relatedTarget || hs.getExpander(e.relatedTarget, true) == exp 
+		if (!exp || !e.relatedTarget || hs.getExpander(e.relatedTarget, true) == exp
 			|| hs.dragArgs) return;
 		hs.fireEvent(exp, over ? 'onMouseOver' : 'onMouseOut', e);
 		for (var i = 0; i < exp.overlays.length; i++) (function() {
@@ -816,7 +816,7 @@ wrapperMouseHandler : function (e) {
 				if (over) hs.setStyles(o, { visibility: 'visible', display: '' });
 				hs.animate(o, { opacity: over ? o.opacity : 0 }, o.dur);
 			}
-		})();	
+		})();
 	} catch (e) {}
 },
 addEventListener : function (el, event, func) {
@@ -832,7 +832,7 @@ addEventListener : function (el, event, func) {
 		} catch (e) {
 			el['on'+ event] = func;
 		}
-	} 
+	}
 },
 
 removeEventListener : function (el, event, func) {
@@ -850,7 +850,7 @@ removeEventListener : function (el, event, func) {
 preloadFullImage : function (i) {
 	if (hs.continuePreloading && hs.preloadTheseImages[i] && hs.preloadTheseImages[i] != 'undefined') {
 		var img = document.createElement('img');
-		img.onload = function() { 
+		img.onload = function() {
 			img = null;
 			hs.preloadFullImage(i + 1);
 		};
@@ -859,18 +859,18 @@ preloadFullImage : function (i) {
 },
 preloadImages : function (number) {
 	if (number && typeof number != 'object') hs.numberOfImagesToPreload = number;
-	
+
 	var arr = hs.getAnchors();
 	for (var i = 0; i < arr.images.length && i < hs.numberOfImagesToPreload; i++) {
 		hs.push(hs.preloadTheseImages, hs.getSrc(arr.images[i]));
 	}
-	
+
 	// preload outlines
 	if (hs.outlineType)	new hs.Outline(hs.outlineType, function () { hs.preloadFullImage(0)} );
 	else
-	
+
 	hs.preloadFullImage(0);
-	
+
 	// preload cursor
 	if (hs.restoreCursor) var cur = hs.createElement('img', { src: hs.graphicsDir + hs.restoreCursor });
 },
@@ -878,28 +878,28 @@ preloadImages : function (number) {
 
 init : function () {
 	if (!hs.container) {
-	
+
 		hs.ieLt7 = hs.ie && hs.uaVersion < 7;
 		hs.ieLt9 = hs.ie && hs.uaVersion < 9;
-		
+
 		hs.getPageSize();
 		hs.ie6SSL = hs.ieLt7 && location.protocol == 'https:';
 		for (var x in hs.langDefaults) {
 			if (typeof hs[x] != 'undefined') hs.lang[x] = hs[x];
-			else if (typeof hs.lang[x] == 'undefined' && typeof hs.langDefaults[x] != 'undefined') 
+			else if (typeof hs.lang[x] == 'undefined' && typeof hs.langDefaults[x] != 'undefined')
 				hs.lang[x] = hs.langDefaults[x];
 		}
-		
+
 		hs.container = hs.createElement('div', {
 				className: 'highslide-container'
 			}, {
 				position: 'absolute',
-				left: 0, 
-				top: 0, 
-				width: '100%', 
+				left: 0,
+				top: 0,
+				width: '100%',
 				zIndex: hs.zIndexCounter,
 				direction: 'ltr'
-			}, 
+			},
 			document.body,
 			true
 		);
@@ -922,10 +922,10 @@ init : function () {
 				visibility: (hs.safari && hs.uaVersion < 525) ? 'visible' : 'hidden'
 			}, hs.container, 1
 		);
-		hs.clearing = hs.createElement('div', null, 
+		hs.clearing = hs.createElement('div', null,
 			{ clear: 'both', paddingTop: '1px' }, null, true);
-		
-		// http://www.robertpenner.com/easing/ 
+
+		// http://www.robertpenner.com/easing/
 		Math.linearTween = function (t, b, c, d) {
 			return c*t/d + b;
 		};
@@ -935,9 +935,9 @@ init : function () {
 		Math.easeOutQuad = function (t, b, c, d) {
 			return -c *(t/=d)*(t-2) + b;
 		};
-		
+
 		hs.hideSelects = hs.ieLt7;
-		hs.hideIframes = ((window.opera && hs.uaVersion < 9) || navigator.vendor == 'KDE' 
+		hs.hideIframes = ((window.opera && hs.uaVersion < 9) || navigator.vendor == 'KDE'
 			|| (hs.ieLt7 && hs.uaVersion < 5.5));
 		hs.fireEvent(this, 'onActivate');
 	}
@@ -950,7 +950,7 @@ ready : function() {
 
 updateAnchors : function() {
 	var el, els, all = [], images = [], htmls = [],groups = {}, re;
-		
+
 	for (var i = 0; i < hs.openerTagNames.length; i++) {
 		els = document.getElementsByTagName(hs.openerTagNames[i]);
 		for (var j = 0; j < els.length; j++) {
@@ -968,7 +968,7 @@ updateAnchors : function() {
 	}
 	hs.anchors = { all: all, groups: groups, images: images, htmls: htmls };
 	return hs.anchors;
-	
+
 },
 
 getAnchors : function() {
@@ -992,7 +992,7 @@ hs.fx = function( elem, options, prop ){
 hs.fx.prototype = {
 	update: function(){
 		(hs.fx.step[this.prop] || hs.fx.step._default)(this);
-		
+
 		if (this.options.step)
 			this.options.step.call(this.elem, this.now, this);
 
@@ -1078,17 +1078,17 @@ hs.Outline =  function (outlineType, onLoad) {
 	this.onLoad = onLoad;
 	this.outlineType = outlineType;
 	var v = hs.uaVersion, tr;
-	
+
 	this.hasAlphaImageLoader = hs.ie && hs.uaVersion < 7;
 	if (!outlineType) {
 		if (onLoad) onLoad();
 		return;
 	}
-	
+
 	hs.init();
 	this.table = hs.createElement(
-		'table', { 
-			cellSpacing: 0 
+		'table', {
+			cellSpacing: 0
 		}, {
 			visibility: 'hidden',
 			position: 'absolute',
@@ -1099,7 +1099,7 @@ hs.Outline =  function (outlineType, onLoad) {
 		true
 	);
 	var tbody = hs.createElement('tbody', null, null, this.table, 1);
-	
+
 	this.td = [];
 	for (var i = 0; i <= 8; i++) {
 		if (i % 3 == 0) tr = hs.createElement('tr', null, { height: 'auto' }, tbody, true);
@@ -1108,21 +1108,21 @@ hs.Outline =  function (outlineType, onLoad) {
 		hs.setStyles(this.td[i], style);
 	}
 	this.td[4].className = outlineType +' highslide-outline';
-	
-	this.preloadGraphic(); 
+
+	this.preloadGraphic();
 };
 
 hs.Outline.prototype = {
 preloadGraphic : function () {
 	var src = hs.graphicsDir + (hs.outlinesDir || "outlines/")+ this.outlineType +".png";
-				
+
 	var appendTo = hs.safari && hs.uaVersion < 525 ? hs.container : null;
-	this.graphic = hs.createElement('img', null, { position: 'absolute', 
+	this.graphic = hs.createElement('img', null, { position: 'absolute',
 		top: '-9999px' }, appendTo, true); // for onload trigger
-	
+
 	var pThis = this;
 	this.graphic.onload = function() { pThis.onGraphicLoad(); };
-	
+
 	this.graphic.src = src;
 },
 
@@ -1135,23 +1135,23 @@ onGraphicLoad : function () {
 			if (this.hasAlphaImageLoader) {
 				var w = (i == 1 || i == 7) ? '100%' : this.graphic.width +'px';
 				var div = hs.createElement('div', null, { width: '100%', height: '100%', position: 'relative', overflow: 'hidden'}, this.td[i], true);
-				hs.createElement ('div', null, { 
-						filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale, src='"+ this.graphic.src + "')", 
+				hs.createElement ('div', null, {
+						filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale, src='"+ this.graphic.src + "')",
 						position: 'absolute',
-						width: w, 
+						width: w,
 						height: this.graphic.height +'px',
 						left: (pos[i][0]*o)+'px',
 						top: (pos[i][1]*o)+'px'
-					}, 
+					},
 				div,
 				true);
 			} else {
 				hs.setStyles(this.td[i], { background: 'url('+ this.graphic.src +') '+ (pos[i][0]*o)+'px '+(pos[i][1]*o)+'px'});
 			}
-			
-			if (window.opera && (i == 3 || i ==5)) 
+
+			if (window.opera && (i == 3 || i ==5))
 				hs.createElement('div', null, dim, this.td[i], true);
-			
+
 			hs.setStyles (this.td[i], dim);
 		}
 	}
@@ -1160,7 +1160,7 @@ onGraphicLoad : function () {
 	hs.pendingOutlines[this.outlineType] = this;
 	if (this.onLoad) this.onLoad();
 },
-	
+
 setPosition : function (pos, offset, vis, dur, easing) {
 	var exp = this.exp,
 		stl = exp.wrapper.style,
@@ -1171,25 +1171,25 @@ setPosition : function (pos, offset, vis, dur, easing) {
 			w: exp.x.get('wsize') - 2 * offset,
 			h: exp.y.get('wsize') - 2 * offset
 		};
-	if (vis) this.table.style.visibility = (pos.h >= 4 * this.offset) 
+	if (vis) this.table.style.visibility = (pos.h >= 4 * this.offset)
 		? 'visible' : 'hidden';
 	hs.setStyles(this.table, {
 		left: (pos.x - this.offset) +'px',
 		top: (pos.y - this.offset) +'px',
 		width: (pos.w + 2 * this.offset) +'px'
 	});
-	
+
 	pos.w -= 2 * this.offset;
 	pos.h -= 2 * this.offset;
 	hs.setStyles (this.td[4], {
 		width: pos.w >= 0 ? pos.w +'px' : 0,
 		height: pos.h >= 0 ? pos.h +'px' : 0
 	});
-	if (this.hasAlphaImageLoader) this.td[3].style.height 
-		= this.td[5].style.height = this.td[4].style.height;	
-	
+	if (this.hasAlphaImageLoader) this.td[3].style.height
+		= this.td[5].style.height = this.td[4].style.height;
+
 },
-	
+
 destroy : function(hide) {
 	if (hide) this.table.style.visibility = 'hidden';
 	else hs.discardElement(this.table);
@@ -1226,42 +1226,42 @@ get : function(key) {
 			return this.get('wsize') + (this.exp.outline ? 2*this.exp.outline.offset : 0);
 		case 'imgPad':
 			return this.imgSize ? Math.round((this.size - this.imgSize) / 2) : 0;
-		
+
 	}
 },
 calcBorders: function() {
 	// correct for borders
 	this.cb = (this.exp.content['offset'+ this.ucwh] - this.t) / 2;
-	
+
 	this.marginMax = hs['margin'+ this.ucrb];
 },
 calcThumb: function() {
-	this.t = this.exp.el[this.wh] ? parseInt(this.exp.el[this.wh]) : 
+	this.t = this.exp.el[this.wh] ? parseInt(this.exp.el[this.wh]) :
 		this.exp.el['offset'+ this.ucwh];
 	this.tpos = this.exp.tpos[this.dim];
 	this.tb = (this.exp.el['offset'+ this.ucwh] - this.t) / 2;
 	if (this.tpos == 0 || this.tpos == -1) {
-		this.tpos = (hs.page[this.wh] / 2) + hs.page['scroll'+ this.uclt];		
+		this.tpos = (hs.page[this.wh] / 2) + hs.page['scroll'+ this.uclt];
 	};
 },
 calcExpanded: function() {
 	var exp = this.exp;
 	this.justify = 'auto';
-	
+
 	// get alignment
 	if (exp.align == 'center') this.justify = 'center';
 	else if (new RegExp(this.lt).test(exp.anchor)) this.justify = null;
 	else if (new RegExp(this.rb).test(exp.anchor)) this.justify = 'max';
-	
-	
+
+
 	// size and position
 	this.pos = this.tpos - this.cb + this.tb;
-	
+
 	if (this.maxHeight && this.dim == 'x')
-		exp.maxWidth = Math.min(exp.maxWidth || this.full, exp.maxHeight * this.full / exp.y.full); 
-		
+		exp.maxWidth = Math.min(exp.maxWidth || this.full, exp.maxHeight * this.full / exp.y.full);
+
 	this.size = Math.min(this.full, exp['max'+ this.ucwh] || this.full);
-	this.minSize = exp.allowSizeReduction ? 
+	this.minSize = exp.allowSizeReduction ?
 		Math.min(exp['min'+ this.ucwh], this.full) :this.full;
 	if (exp.isImage && exp.useBox)	{
 		this.size = exp[this.wh];
@@ -1281,7 +1281,7 @@ setSize: function(i) {
 		exp.content.style[this.lt] = this.get('imgPad')+'px';
 	} else
 	this.size = i;
-	
+
 	exp.content.style[this.wh] = i +'px';
 	exp.wrapper.style[this.wh] = this.get('wsize') +'px';
 	if (exp.outline) exp.outline.setPosition();
@@ -1294,7 +1294,7 @@ setSize: function(i) {
 		if (this.sizeDiff === undefined)
 			this.sizeDiff = exp.innerContent['offset'+ this.ucwh] - d['offset'+ this.ucwh];
 		d.style[this.wh] = (this.size - this.sizeDiff) +'px';
-			
+
 		if (this.dim == 'x') exp.mediumContent.style.width = 'auto';
 		if (exp.body) exp.body.style[this.wh] = 'auto';
 	}
@@ -1306,10 +1306,10 @@ setSize: function(i) {
 },
 setPos: function(i) {
 	this.pos = i;
-	this.exp.wrapper.style[this.lt] = i +'px';	
-	
+	this.exp.wrapper.style[this.lt] = i +'px';
+
 	if (this.exp.outline) this.exp.outline.setPosition();
-	
+
 }
 };
 
@@ -1319,13 +1319,13 @@ hs.Expander = function(a, params, custom, contentType) {
 			new hs.Expander(a, params, custom, contentType);
 		});
 		return;
-	} 
+	}
 	this.a = a;
 	this.custom = custom;
 	this.contentType = contentType || 'image';
 	this.isHtml = (contentType == 'html');
 	this.isImage = !this.isHtml;
-	
+
 	hs.continuePreloading = false;
 	this.overlays = [];
 	this.last = hs.last;
@@ -1339,21 +1339,21 @@ hs.Expander = function(a, params, custom, contentType) {
 			params[name] : hs[name];
 	}
 	if (!this.src) this.src = a.href;
-	
+
 	// get thumb
 	var el = (params && params.thumbnailId) ? hs.$(params.thumbnailId) : a;
 	el = this.thumb = el.getElementsByTagName('img')[0] || el;
 	this.thumbsUserSetId = el.id || a.id;
 	if (!hs.fireEvent(this, 'onInit')) return true;
-	
+
 	// check if already open
 	for (var i = 0; i < hs.expanders.length; i++) {
-		if (hs.expanders[i] && hs.expanders[i].a == a 
+		if (hs.expanders[i] && hs.expanders[i].a == a
 			&& !(this.last && this.transitions[1] == 'crossfade')) {
 			hs.expanders[i].focus();
 			return false;
 		}
-	}	
+	}
 
 	// cancel other
 	if (!hs.allowSimultaneousLoading) for (var i = 0; i < hs.expanders.length; i++) {
@@ -1367,7 +1367,7 @@ hs.Expander = function(a, params, custom, contentType) {
 		if (typeof hs.focusKey != 'undefined' && hs.expanders[hs.focusKey])
 			hs.expanders[hs.focusKey].close();
 	}
-	
+
 	// initiate metrics
 	this.el = el;
 	this.tpos = this.pageOrigin || hs.getPosition(el);
@@ -1386,28 +1386,28 @@ hs.Expander = function(a, params, custom, contentType) {
 			position: 'absolute',
 			zIndex: hs.zIndexCounter += 2
 		}, null, true );
-	
+
 	this.wrapper.onmouseover = this.wrapper.onmouseout = hs.wrapperMouseHandler;
 	if (this.contentType == 'image' && this.outlineWhileAnimating == 2)
 		this.outlineWhileAnimating = 0;
-	
+
 	// get the outline
-	if (!this.outlineType 
+	if (!this.outlineType
 		|| (this.last && this.isImage && this.transitions[1] == 'crossfade')) {
 		this[this.contentType +'Create']();
-	
+
 	} else if (hs.pendingOutlines[this.outlineType]) {
 		this.connectOutline();
 		this[this.contentType +'Create']();
-	
+
 	} else {
 		this.showLoading();
 		var exp = this;
-		new hs.Outline(this.outlineType, 
+		new hs.Outline(this.outlineType,
 			function () {
 				exp.connectOutline();
 				exp[exp.contentType +'Create']();
-			} 
+			}
 		);
 	}
 	return true;
@@ -1428,37 +1428,37 @@ connectOutline : function() {
 
 showLoading : function() {
 	if (this.onLoadStarted || this.loading) return;
-	
+
 	this.loading = hs.loading;
 	var exp = this;
 	this.loading.onclick = function() {
 		exp.cancelLoading();
 	};
-	
-	
+
+
 	if (!hs.fireEvent(this, 'onShowLoading')) return;
-	var exp = this, 
+	var exp = this,
 		l = this.x.get('loadingPos') +'px',
 		t = this.y.get('loadingPos') +'px';
-	if (!tgt && this.last && this.transitions[1] == 'crossfade') 
-		var tgt = this.last; 
+	if (!tgt && this.last && this.transitions[1] == 'crossfade')
+		var tgt = this.last;
 	if (tgt) {
 		l = tgt.x.get('loadingPosXfade') +'px';
 		t = tgt.y.get('loadingPosXfade') +'px';
 		this.loading.style.zIndex = hs.zIndexCounter++;
 	}
-	setTimeout(function () { 
+	setTimeout(function () {
 		if (exp.loading) hs.setStyles(exp.loading, { left: l, top: t, zIndex: hs.zIndexCounter++ })}
 	, 100);
 },
 
 imageCreate : function() {
 	var exp = this;
-	
+
 	var img = document.createElement('img');
     this.content = img;
     img.onload = function () {
-    	if (hs.expanders[exp.key]) exp.contentLoaded(); 
+    	if (hs.expanders[exp.key]) exp.contentLoaded();
 	};
     if (hs.blockRightClick) img.oncontextmenu = function() { return false; };
     img.className = 'highslide-image';
@@ -1473,17 +1473,17 @@ imageCreate : function() {
 	if (hs.safari && hs.uaVersion < 525) hs.container.appendChild(img);
     if (hs.ie && hs.flushImgSize) img.src = null;
 	img.src = this.src;
-	
+
 	this.showLoading();
 },
 
 htmlCreate : function () {
 	if (!hs.fireEvent(this, 'onBeforeGetContent')) return;
-	
+
 	this.content = hs.getCacheBinding(this.a);
-	if (!this.content) 
+	if (!this.content)
 		this.content = hs.getNode(this.contentId);
-	if (!this.content) 
+	if (!this.content)
 		this.content = hs.getSelfRendered();
 	this.getInline(['maincontent']);
 	if (this.maincontent) {
@@ -1492,20 +1492,20 @@ htmlCreate : function () {
 		this.maincontent.style.display = 'block';
 	}
 	hs.fireEvent(this, 'onAfterGetContent');
-	
+
 	var innerContent = this.innerContent = this.content;
-	
+
 	if (/(swf|iframe)/.test(this.objectType)) this.setObjContainerSize(innerContent);
-	
+
 	// the content tree
 	hs.container.appendChild(this.wrapper);
-	hs.setStyles( this.wrapper, { 
+	hs.setStyles( this.wrapper, {
 		position: 'static',
 		padding: '0 '+ hs.marginRight +'px 0 '+ hs.marginLeft +'px'
 	});
 	this.content = hs.createElement(
     	'div', {
-    		className: 'highslide-html' 
+    		className: 'highslide-html'
     	}, {
 			position: 'relative',
 			zIndex: 3,
@@ -1516,8 +1516,8 @@ htmlCreate : function () {
 	);
 	this.mediumContent = hs.createElement('div', null, null, this.content, 1);
 	this.mediumContent.appendChild(innerContent);
-	
-	hs.setStyles (innerContent, { 
+
+	hs.setStyles (innerContent, {
 		position: 'relative',
 		display: 'block',
 		direction: hs.lang.cssDirection || ''
@@ -1529,9 +1529,9 @@ htmlCreate : function () {
 	});
 	if (innerContent.offsetWidth < this.minWidth)
 		innerContent.style.width = this.minWidth +'px';
-		
-	
-    
+
+
+
 	if (this.objectType == 'ajax' && !hs.getCacheBinding(this.a)) {
 		this.showLoading();
     	var exp = this;
@@ -1542,7 +1542,7 @@ htmlCreate : function () {
     	ajax.run();
 	}
     else
-    
+
     if (this.objectType == 'iframe' && this.objectLoadTime == 'before') {
 		this.writeExtendedContent();
 	}
@@ -1551,23 +1551,23 @@ htmlCreate : function () {
 },
 
 contentLoaded : function() {
-	try {	
+	try {
 		if (!this.content) return;
 		this.content.onload = null;
 		if (this.onLoadStarted) return;
 		else this.onLoadStarted = true;
-		
+
 		var x = this.x, y = this.y;
-		
+
 		if (this.loading) {
 			hs.setStyles(this.loading, { top: '-9999px' });
 			this.loading = null;
 			hs.fireEvent(this, 'onHideLoading');
 		}
-		if (this.isImage) {	
+		if (this.isImage) {
 			x.full = this.content.width;
 			y.full = this.content.height;
-			
+
 			hs.setStyles(this.content, {
 				width: x.t +'px',
 				height: y.t +'px'
@@ -1575,47 +1575,47 @@ contentLoaded : function() {
 			this.wrapper.appendChild(this.content);
 			hs.container.appendChild(this.wrapper);
 		} else if (this.htmlGetSize) this.htmlGetSize();
-		
+
 		x.calcBorders();
 		y.calcBorders();
-		
+
 		hs.setStyles (this.wrapper, {
 			left: (x.tpos + x.tb - x.cb) +'px',
 			top: (y.tpos + x.tb - y.cb) +'px'
 		});
-		
-		
+
+
 		this.initSlideshow();
 		this.getOverlays();
-		
+
 		var ratio = x.full / y.full;
 		x.calcExpanded();
 		this.justify(x);
-		
+
 		y.calcExpanded();
 		this.justify(y);
 		if (this.isHtml) this.htmlSizeOperations();
 		if (this.overlayBox) this.sizeOverlayBox(0, 1);
 
-		
+
 		if (this.allowSizeReduction) {
 			if (this.isImage)
 				this.correctRatio(ratio);
 			else this.fitOverlayBox();
-			var ss = this.slideshow;			
+			var ss = this.slideshow;
 			if (ss && this.last && ss.controls && ss.fixedControls) {
 				var pos = ss.overlayOptions.position || '', p;
 				for (var dim in hs.oPos) for (var i = 0; i < 5; i++) {
 					p = this[dim];
 					if (pos.match(hs.oPos[dim][i])) {
-						p.pos = this.last[dim].pos 
+						p.pos = this.last[dim].pos
 							+ (this.last[dim].p1 - p.p1)
 							+ (this.last[dim].size - p.size) * [0, 0, .5, 1, 1][i];
 						if (ss.fixedControls == 'fit') {
 							if (p.pos + p.size + p.p1 + p.p2 > p.scroll + p.clientSize - p.marginMax)
 								p.pos = p.scroll + p.clientSize - p.size - p.marginMin - p.marginMax - p.p1 - p.p2;
-							if (p.pos < p.scroll + p.marginMin) p.pos = p.scroll + p.marginMin; 
-						} 
+							if (p.pos < p.scroll + p.marginMin) p.pos = p.scroll + p.marginMin;
+						}
 					}
 				}
 			}
@@ -1625,7 +1625,7 @@ contentLoaded : function() {
 			}
 		}
 		this.show();
-		
+
 	} catch (e) {
 		this.error(e);
 	}
@@ -1652,23 +1652,23 @@ writeExtendedContent : function () {
 		if (!this.objectWidth) this.objectWidth = ruler.offsetWidth;
 		var hDiff = this.innerContent.offsetHeight - this.body.offsetHeight,
 			h = this.objectHeight || hs.page.height - hDiff - hs.marginTop - hs.marginBottom,
-			onload = this.objectLoadTime == 'before' ? 
+			onload = this.objectLoadTime == 'before' ?
 				' onload="if (hs.expanders['+ this.key +']) hs.expanders['+ this.key +'].contentLoaded()" ' : '';
 		this.body.innerHTML += '<iframe name="hs'+ (new Date()).getTime() +'" frameborder="0" key="'+ this.key +'" '
 			+' style="width:'+ this.objectWidth +'px; height:'+ h +'px" '
 			+ onload +' src="'+ this.src +'" ></iframe>';
 		this.ruler = this.body.getElementsByTagName('div')[0];
 		this.iframe = this.body.getElementsByTagName('iframe')[0];
-		
+
 		if (this.objectLoadTime == 'after') this.correctIframeSize();
-		
+
 	}
 	if (this.objectType == 'swf') {
 		this.body.id = this.body.id || 'hs-flash-id-' + this.key;
 		var a = this.swfOptions;
 		if (!a.params) a.params = {};
 		if (typeof a.params.wmode == 'undefined') a.params.wmode = 'transparent';
-		if (swfobject) swfobject.embedSWF(this.src, this.body.id, this.objectWidth, this.objectHeight, 
+		if (swfobject) swfobject.embedSWF(this.src, this.body.id, this.objectWidth, this.objectHeight,
 			a.version || '7', a.expressInstallSwfurl, a.flashvars, a.params, a.attributes);
 	}
 	this.hasExtendedContent = true;
@@ -1686,7 +1686,7 @@ htmlGetSize : function() {
 	}
 	hs.setStyles( this.wrapper, { position: 'absolute',	padding: '0'});
 	hs.setStyles( this.content, { width: this.x.t +'px', height: this.y.t +'px'});
-	
+
 },
 
 getIframePageHeight : function() {
@@ -1697,7 +1697,7 @@ getIframePageHeight : function() {
 		clearing.style.clear = 'both';
 		doc.body.appendChild(clearing);
 		h = clearing.offsetTop;
-		if (hs.ie) h += parseInt(doc.body.currentStyle.marginTop) 
+		if (hs.ie) h += parseInt(doc.body.currentStyle.marginTop)
 			+ parseInt(doc.body.currentStyle.marginBottom) - 1;
 	} catch (e) { // other domain
 		h = 300;
@@ -1708,40 +1708,40 @@ correctIframeSize : function () {
 	var wDiff = this.innerContent.offsetWidth - this.ruler.offsetWidth;
 	hs.discardElement(this.ruler);
 	if (wDiff < 0) wDiff = 0;
-	
+
 	var hDiff = this.innerContent.offsetHeight - this.iframe.offsetHeight;
 	if (this.iDoc && !this.objectHeight && !this.height && this.y.size == this.y.full) try {
 		this.iDoc.body.style.overflow = 'hidden';
 	} catch (e) {}
-	hs.setStyles(this.iframe, { 
-		width: Math.abs(this.x.size - wDiff) +'px', 
+	hs.setStyles(this.iframe, {
+		width: Math.abs(this.x.size - wDiff) +'px',
 		height: Math.abs(this.y.size - hDiff) +'px'
 	});
-    hs.setStyles(this.body, { 
-		width: this.iframe.style.width, 
+    hs.setStyles(this.body, {
+		width: this.iframe.style.width,
     	height: this.iframe.style.height
 	});
-    	
+
     this.scrollingContent = this.iframe;
     this.scrollerDiv = this.scrollingContent;
-	
+
 },
 htmlSizeOperations : function () {
-	
+
 	this.setObjContainerSize(this.innerContent);
-	
-	
-	if (this.objectType == 'swf' && this.objectLoadTime == 'before') this.writeExtendedContent();	
-	
+
+
+	if (this.objectType == 'swf' && this.objectLoadTime == 'before') this.writeExtendedContent();
+
     // handle minimum size
     if (this.x.size < this.x.full && !this.allowWidthReduction) this.x.size = this.x.full;
     if (this.y.size < this.y.full && !this.allowHeightReduction) this.y.size = this.y.full;
 	this.scrollerDiv = this.innerContent;
-    hs.setStyles(this.mediumContent, { 
+    hs.setStyles(this.mediumContent, {
 		position: 'relative',
 		width: this.x.size +'px'
 	});
-    hs.setStyles(this.innerContent, { 
+    hs.setStyles(this.innerContent, {
     	border: 'none',
     	width: 'auto',
     	height: 'auto'
@@ -1753,18 +1753,18 @@ htmlSizeOperations : function () {
     	cNode.parentNode.insertBefore(node, cNode);
     	node.appendChild(hs.clearing); // IE6
     	node.appendChild(cNode);
-    	
+
     	var wDiff = this.innerContent.offsetWidth - node.offsetWidth;
     	var hDiff = this.innerContent.offsetHeight - node.offsetHeight;
 		node.removeChild(hs.clearing);
-    	
+
     	var kdeBugCorr = hs.safari || navigator.vendor == 'KDE' ? 1 : 0; // KDE repainting bug
-    	hs.setStyles(node, { 
-    			width: (this.x.size - wDiff - kdeBugCorr) +'px', 
+    	hs.setStyles(node, {
+    			width: (this.x.size - wDiff - kdeBugCorr) +'px',
     			height: (this.y.size - hDiff) +'px',
-    			overflow: 'auto', 
-    			position: 'relative' 
-    		} 
+    			overflow: 'auto',
+    			position: 'relative'
+    		}
     	);
 		if (kdeBugCorr && cNode.offsetHeight > node.offsetHeight)	{
     		node.style.width = (parseInt(node.style.width) + kdeBugCorr) + 'px';
@@ -1774,7 +1774,7 @@ htmlSizeOperations : function () {
 	}
     if (this.iframe && this.objectLoadTime == 'before') this.correctIframeSize();
     if (!this.scrollingContent && this.y.size < this.mediumContent.offsetHeight) this.scrollerDiv = this.content;
-	
+
 	if (this.scrollerDiv == this.content && !this.allowWidthReduction && !/(iframe|swf)/.test(this.objectType)) {
 		this.x.size += 17; // room for scrollbars
 	}
@@ -1787,7 +1787,7 @@ htmlSizeOperations : function () {
 getImageMapAreaCorrection : function(area) {
 	var c = area.coords.split(',');
 	for (var i = 0; i < c.length; i++) c[i] = parseInt(c[i]);
-	
+
 	if (area.shape.toLowerCase() == 'circle') {
 		this.x.tpos += c[0] - c[2];
 		this.y.tpos += c[1] - c[2];
@@ -1811,21 +1811,21 @@ getImageMapAreaCorrection : function(area) {
 },
 justify : function (p, moveOnly) {
 	var tgtArr, tgt = p.target, dim = p == this.x ? 'x' : 'y';
-	
+
 	if (tgt && tgt.match(/ /)) {
 		tgtArr = tgt.split(' ');
 		tgt = tgtArr[0];
 	}
 	if (tgt && hs.$(tgt)) {
 		p.pos = hs.getPosition(hs.$(tgt))[dim];
-		if (tgtArr && tgtArr[1] && tgtArr[1].match(/^[-]?[0-9]+px$/)) 
+		if (tgtArr && tgtArr[1] && tgtArr[1].match(/^[-]?[0-9]+px$/))
 			p.pos += parseInt(tgtArr[1]);
 		if (p.size < p.minSize) p.size = p.minSize;
-		
+
 	} else if (p.justify == 'auto' || p.justify == 'center') {
-	
+
 		var hasMovedMin = false;
-		
+
 		var allowReduce = p.exp.allowSizeReduction;
 		if (p.justify == 'center')
 			p.pos = Math.round(p.scroll + (p.clientSize + p.marginMin - p.marginMax - p.get('wsize')) / 2);
@@ -1833,7 +1833,7 @@ justify : function (p, moveOnly) {
 			p.pos = Math.round(p.pos - ((p.get('wsize') - p.t) / 2));
 		if (p.pos < p.scroll + p.marginMin) {
 			p.pos = p.scroll + p.marginMin;
-			hasMovedMin = true;		
+			hasMovedMin = true;
 		}
 		if (!moveOnly && p.size < p.minSize) {
 			p.size = p.minSize;
@@ -1847,37 +1847,37 @@ justify : function (p, moveOnly) {
 			} else { // image larger than viewport
 				p.pos = p.scroll + p.marginMin;
 				if (!moveOnly && allowReduce) p.size = p.get(dim == 'y' ? 'fitsize' : 'maxsize');
-			}			
+			}
 		}
-		
+
 		if (!moveOnly && p.size < p.minSize) {
 			p.size = p.minSize;
 			allowReduce = false;
 		}
-		
-	
+
+
 	} else if (p.justify == 'max') {
 		p.pos = Math.floor(p.pos - p.size + p.t);
 	}
-	
-		
+
+
 	if (p.pos < p.marginMin) {
 		var tmpMin = p.pos;
-		p.pos = p.marginMin; 
-		
+		p.pos = p.marginMin;
+
 		if (allowReduce && !moveOnly) p.size = p.size - (p.pos - tmpMin);
-		
+
 	}
 },
 
 correctRatio : function(ratio) {
-	var x = this.x, 
+	var x = this.x,
 		y = this.y,
 		changed = false,
 		xSize = Math.min(x.full, x.size),
 		ySize = Math.min(y.full, y.size),
 		useBox = (this.useBox || hs.padToMinWidth);
-	
+
 	if (xSize / ySize > ratio) { // width greater
 		xSize = ySize * ratio;
 		if (xSize < x.minSize) { // below minWidth
@@ -1885,12 +1885,12 @@ correctRatio : function(ratio) {
 			ySize = xSize / ratio;
 		}
 		changed = true;
-	
+
 	} else if (xSize / ySize < ratio) { // height greater
 		ySize = xSize / ratio;
 		changed = true;
 	}
-	
+
 	if (hs.padToMinWidth && x.full < x.minSize) {
 		x.imgSize = x.full;
 		y.size = y.imgSize = y.full;
@@ -1910,19 +1910,19 @@ correctRatio : function(ratio) {
 		x.pos = x.tpos - x.cb + x.tb;
 		x.minSize = x.size;
 		this.justify(x, true);
-	
+
 		y.pos = y.tpos - y.cb + y.tb;
 		y.minSize = y.size;
 		this.justify(y, true);
 		if (this.overlayBox) this.sizeOverlayBox();
 	}
-	
-	
+
+
 },
 fitOverlayBox : function(ratio, changed) {
 	var x = this.x, y = this.y;
 	if (this.overlayBox && (this.isImage || this.allowHeightReduction)) {
-		while (y.size > this.minHeight && x.size > this.minWidth 
+		while (y.size > this.minHeight && x.size > this.minWidth
 				&&  y.get('wsize') > y.get('fitsize')) {
 			y.size -= 10;
 			if (ratio) x.size = y.size * ratio;
@@ -1947,7 +1947,7 @@ show : function () {
 	this.doShowHide('hidden');
 	hs.fireEvent(this, 'onBeforeExpand');
 	if (this.slideshow && this.slideshow.thumbstrip) this.slideshow.thumbstrip.selectThumb();
-	
+
 	// Apply size change
 	this.changeSize(
 		1, {
@@ -1972,24 +1972,24 @@ changeSize : function(up, to, dur) {
 	// transition
 	var trans = this.transitions,
 	other = up ? (this.last ? this.last.a : null) : hs.upcoming,
-	t = (trans[1] && other 
+	t = (trans[1] && other
 			&& hs.getParam(other, 'transitions')[1] == trans[1]) ?
 		trans[1] : trans[0];
-		
+
 	if (this[t] && t != 'expand') {
 		this[t](up, to);
 		return;
 	}
-	
+
 	if (this.outline && !this.outlineWhileAnimating) {
 		if (up) this.outline.setPosition();
 		else this.outline.destroy(
 				(this.isHtml && this.preserveContent));
 	}
-	
-	
+
+
 	if (!up) this.destroyOverlays();
-	
+
 	var exp = this,
 		x = exp.x,
 		y = exp.y,
@@ -1997,7 +1997,7 @@ changeSize : function(up, to, dur) {
 	if (!up) easing = this.easingClose || easing;
 	var after = up ?
 		function() {
-				
+
 			if (exp.outline) exp.outline.table.style.visibility = "visible";
 			setTimeout(function() {
 				exp.afterExpand();
@@ -2032,12 +2032,12 @@ changeSize : function(up, to, dur) {
 					x: x.tpos + (x.pos - x.tpos) * fac,
 					y: y.tpos + (y.pos - y.tpos) * fac
 				};
-				exp.outline.setPosition(pos, 0, 1);				
+				exp.outline.setPosition(pos, 0, 1);
 			}
-			if (exp.isHtml) {	
-				if (args.prop == 'left') 
+			if (exp.isHtml) {
+				if (args.prop == 'left')
 					exp.mediumContent.style.left = (x.pos - val) +'px';
-				if (args.prop == 'top') 
+				if (args.prop == 'top')
 					exp.mediumContent.style.top = (y.pos - val) +'px';
 			}
 		}
@@ -2056,20 +2056,20 @@ changeSize : function(up, to, dur) {
 fade : function(up, to) {
 	this.outlineWhileAnimating = false;
 	var exp = this,	t = up ? hs.expandDuration : 0;
-	
+
 	if (up) {
 		hs.animate(this.wrapper, to.wrapper, 0);
 		hs.setStyles(this.wrapper, { opacity: 0, visibility: 'visible' });
 		hs.animate(this.content, to.content, 0);
 		this.content.style.visibility = 'visible';
 
-		hs.animate(this.wrapper, { opacity: 1 }, t, null, 
+		hs.animate(this.wrapper, { opacity: 1 }, t, null,
 			function() { exp.afterExpand(); });
 	}
-	
+
 	if (this.outline) {
 		this.outline.table.style.zIndex = this.wrapper.style.zIndex;
-		var dir = up || -1, 
+		var dir = up || -1,
 			offset = this.outline.offset,
 			startOff = up ? 3 : offset,
 			endOff = up? offset : 3;
@@ -2082,24 +2082,24 @@ fade : function(up, to) {
 			})();
 		}
 	}
-	
-	
+
+
 	if (up) {}//setTimeout(function() { exp.afterExpand(); }, t+50);
 	else {
 		setTimeout( function() {
 			if (exp.outline) exp.outline.destroy(exp.preserveContent);
-			
+
 			exp.destroyOverlays();
-	
+
 			hs.animate( exp.wrapper, { opacity: 0 }, hs.restoreDuration, null, function(){
 				exp.afterClose();
 			});
-		}, t);		
+		}, t);
 	}
 },
 crossfade : function (up, to, from) {
 	if (!up) return;
-	var exp = this, 
+	var exp = this,
 		last = this.last,
 		x = this.x,
 		y = this.y,
@@ -2109,10 +2109,10 @@ crossfade : function (up, to, from) {
 		content = this.content,
 		overlayBox = this.overlayBox;
 	hs.removeEventListener(document, 'mousemove', hs.dragHandler);
-	
-	hs.setStyles(content, { 
-		width: (x.imgSize || x.size) +'px', 
-		height: (y.imgSize || y.size) +'px'		
+
+	hs.setStyles(content, {
+		width: (x.imgSize || x.size) +'px',
+		height: (y.imgSize || y.size) +'px'
 	});
 	if (overlayBox) overlayBox.style.overflow = 'visible';
 	this.outline = last.outline;
@@ -2120,15 +2120,15 @@ crossfade : function (up, to, from) {
 	last.outline = null;
 	var fadeBox = hs.createElement('div', {
 			className: 'highslide-'+ this.contentType
-		}, { 
-			position: 'absolute', 
+		}, {
+			position: 'absolute',
 			zIndex: 4,
 			overflow: 'hidden',
 			display: 'none'
 		}
 	);
 	var names = { oldImg: last, newImg: this };
-	for (var n in names) { 	
+	for (var n in names) {
 		this[n] = names[n].content.cloneNode(1);
 		hs.setStyles(this[n], {
 			position: 'absolute',
@@ -2138,7 +2138,7 @@ crossfade : function (up, to, from) {
 		fadeBox.appendChild(this[n]);
 	}
 	wrapper.appendChild(fadeBox);
-	if (this.isHtml) hs.setStyles(this.mediumContent, { 
+	if (this.isHtml) hs.setStyles(this.mediumContent, {
 		left: 0,
 		top: 0
 	});
@@ -2148,20 +2148,20 @@ crossfade : function (up, to, from) {
 	}
 	fadeBox.style.display = '';
 	last.content.style.display = 'none';
-	
-	
+
+
 	if (hs.safari && hs.uaVersion < 525) {
 		this.wrapper.style.visibility = 'visible';
 	}
 	hs.animate(wrapper, {
 		width: x.size
 	}, {
-		duration: hs.transitionDuration, 
+		duration: hs.transitionDuration,
 		step: function(val, args) {
 			var pos = args.pos,
 				invPos = 1 - pos;
 			var prop,
-				size = {}, 
+				size = {},
 				props = ['pos', 'size', 'p1', 'p2'];
 			for (var n in props) {
 				prop = props[n];
@@ -2174,10 +2174,10 @@ crossfade : function (up, to, from) {
 					invPos * (lastY.imgSize || lastY.size) + pos * (y.imgSize || y.size));
 				size.yimgPad = Math.round(invPos * lastY.get('imgPad') + pos * y.get('imgPad'));
 			}
-			if (exp.outline) exp.outline.setPosition({ 
-				x: size.xpos, 
-				y: size.ypos, 
-				w: size.xsize + size.xp1 + size.xp2 + 2 * x.cb, 
+			if (exp.outline) exp.outline.setPosition({
+				x: size.xpos,
+				y: size.ypos,
+				w: size.xsize + size.xp1 + size.xp2 + 2 * x.cb,
 				h: size.ysize + size.yp1 + size.yp2 + 2 * y.cb
 			});
 			last.wrapper.style.clip = 'rect('
@@ -2185,7 +2185,7 @@ crossfade : function (up, to, from) {
 				+ (size.xsize + size.xp1 + size.xp2 + size.xpos + 2 * lastX.cb - lastX.pos) +'px, '
 				+ (size.ysize + size.yp1 + size.yp2 + size.ypos + 2 * lastY.cb - lastY.pos) +'px, '
 				+ (size.xpos - lastX.pos)+'px)';
-				
+
 			hs.setStyles(content, {
 				top: (size.yp1 + y.get('imgPad')) +'px',
 				left: (size.xp1 + x.get('imgPad')) +'px',
@@ -2205,12 +2205,12 @@ crossfade : function (up, to, from) {
 				top: (size.yp1 + size.yimgPad) +'px',
 				visibility: 'visible'
 			});
-			
+
 			hs.setStyles(exp.oldImg, {
 				top: (lastY.pos - size.ypos + lastY.p1 - size.yp1 + lastY.get('imgPad') - size.yimgPad)+'px',
 				left: (lastX.pos - size.xpos + lastX.p1 - size.xp1 + lastX.get('imgPad') - size.ximgPad)+'px'
-			});		
-			
+			});
+
 			hs.setStyles(exp.newImg, {
 				opacity: pos,
 				top: (y.pos - size.ypos + y.p1 - size.yp1 + y.get('imgPad') - size.yimgPad) +'px',
@@ -2231,7 +2231,7 @@ crossfade : function (up, to, from) {
 			last.afterClose();
 			exp.last = null;
 		}
-		
+
 	});
 },
 reuseOverlay : function(o, el) {
@@ -2250,9 +2250,9 @@ reuseOverlay : function(o, el) {
 
 
 afterExpand : function() {
-	this.isExpanded = true;	
+	this.isExpanded = true;
 	this.focus();
-	
+
 	if (this.isHtml && this.objectLoadTime == 'after') this.writeExtendedContent();
 	if (this.iframe) {
 		try {
@@ -2262,7 +2262,7 @@ afterExpand : function() {
 				if (hs.focusKey != exp.key) exp.focus();
 			});
 		} catch(e) {}
-		if (hs.ie && typeof this.isClosing != 'boolean') // first open 
+		if (hs.ie && typeof this.isClosing != 'boolean') // first open
 			this.iframe.style.width = (this.objectWidth - 1) +'px'; // hasLayout
 	}
 	if (this.dimmingOpacity) hs.dim(this);
@@ -2270,24 +2270,24 @@ afterExpand : function() {
 	this.prepareNextOutline();
 	var p = hs.page, mX = hs.mouse.x + p.scrollLeft, mY = hs.mouse.y + p.scrollTop;
 	this.mouseIsOver = this.x.pos < mX && mX < this.x.pos + this.x.get('wsize')
-		&& this.y.pos < mY && mY < this.y.pos + this.y.get('wsize');	
+		&& this.y.pos < mY && mY < this.y.pos + this.y.get('wsize');
 	if (this.overlayBox) this.showOverlays();
 	hs.fireEvent(this, 'onAfterExpand');
-	
+
 },
 
 
 prepareNextOutline : function() {
 	var key = this.key;
 	var outlineType = this.outlineType;
-	new hs.Outline(outlineType, 
+	new hs.Outline(outlineType,
 		function () { try { hs.expanders[key].preloadNext(); } catch (e) {} });
 },
 
 
 preloadNext : function() {
 	var next = this.getAdjacentAnchor(1);
-	if (next && next.onclick.toString().match(/hs\.expand/)) 
+	if (next && next.onclick.toString().match(/hs\.expand/))
 		var img = hs.createElement('img', { src: hs.getSrc(next) });
 },
 
@@ -2304,7 +2304,7 @@ getAdjacentAnchor : function(op) {
 getAnchorIndex : function() {
 	var arr = hs.getAnchors().groups[this.slideshowGroup || 'none'];
 	if (arr) for (var i = 0; i < arr.length; i++) {
-		if (arr[i] == this.a) return i; 
+		if (arr[i] == this.a) return i;
 	}
 	return null;
 },
@@ -2315,7 +2315,7 @@ getNumber : function() {
 		var arr = hs.anchors.groups[this.slideshowGroup || 'none'];
 		if (arr) {
 			var s = hs.lang.number.replace('%1', this.getAnchorIndex() + 1).replace('%2', arr.length);
-			this[this.numberPosition].innerHTML = 
+			this[this.numberPosition].innerHTML =
 				'<div class="highslide-number">'+ s +'</div>'+ this[this.numberPosition].innerHTML;
 		}
 	}
@@ -2324,16 +2324,16 @@ initSlideshow : function() {
 	if (!this.last) {
 		for (var i = 0; i < hs.slideshows.length; i++) {
 			var ss = hs.slideshows[i], sg = ss.slideshowGroup;
-			if (typeof sg == 'undefined' || sg === null || sg === this.slideshowGroup) 
+			if (typeof sg == 'undefined' || sg === null || sg === this.slideshowGroup)
 				this.slideshow = new hs.Slideshow(this.key, ss);
-		} 
+		}
 	} else {
 		this.slideshow = this.last.slideshow;
 	}
 	var ss = this.slideshow;
 	if (!ss) return;
 	var key = ss.expKey = this.key;
-	
+
 	ss.checkFirstAndLast();
 	ss.disable('full-expand');
 	if (ss.controls) {
@@ -2370,10 +2370,10 @@ writeCredits : function () {
 		innerHTML: hs.lang.creditsText,
 		title: hs.lang.creditsTitle
 	});
-	this.createOverlay({ 
-		overlayId: this.credits, 
-		position: this.creditsPosition || 'top left', 
-		hsId: 'credits' 
+	this.createOverlay({
+		overlayId: this.credits,
+		position: this.creditsPosition || 'top left',
+		hsId: 'credits'
 	});
 },
 
@@ -2382,7 +2382,7 @@ getInline : function(types, addOverlay) {
 		var type = types[i], s = null;
 		if (type == 'caption' && !hs.fireEvent(this, 'onBeforeGetCaption')) return;
 		else if (type == 'heading' && !hs.fireEvent(this, 'onBeforeGetHeading')) return;
-		if (!this[type +'Id'] && this.thumbsUserSetId)  
+		if (!this[type +'Id'] && this.thumbsUserSetId)
 			this[type +'Id'] = type +'-for-'+ this.thumbsUserSetId;
 		if (this[type +'Id']) this[type] = hs.getNode(this[type +'Id']);
 		if (!this[type] && !this[type +'Text'] && this[type +'Eval']) try {
@@ -2406,10 +2406,10 @@ getInline : function(types, addOverlay) {
 			}
 		}
 		if (!this[type] && !s && this.numberPosition == type) s = '\n';
-		
-		if (!this[type] && s) this[type] = hs.createElement('div', 
+
+		if (!this[type] && s) this[type] = hs.createElement('div',
 				{ className: 'highslide-'+ type, innerHTML: s } );
-		
+
 		if (addOverlay && this[type]) {
 			var o = { position: (type == 'heading') ? 'above' : 'below' };
 			for (var x in this[type+'Overlay']) o[x] = this[type+'Overlay'][x];
@@ -2443,10 +2443,10 @@ showHideElements : function (tagName, visibility) {
 				elPos.w = els[i].offsetWidth;
 				elPos.h = els[i].offsetHeight;
 				if (!this.dimmingOpacity) { // hide all if dimming
-				
-					var clearsX = (elPos.x + elPos.w < this.x.get('opos') 
+
+					var clearsX = (elPos.x + elPos.w < this.x.get('opos')
 						|| elPos.x > this.x.get('opos') + this.x.get('osize'));
-					var clearsY = (elPos.y + elPos.h < this.y.get('opos') 
+					var clearsY = (elPos.y + elPos.h < this.y.get('opos')
 						|| elPos.y > this.y.get('opos') + this.y.get('osize'));
 				}
 				var wrapperKey = hs.getWrapperKey(els[i]);
@@ -2455,7 +2455,7 @@ showHideElements : function (tagName, visibility) {
 						els[i].setAttribute('hidden-by', '['+ this.key +']');
 						els[i].origProp = els[i].style[prop];
 						els[i].style[prop] = 'hidden';
-						
+
 					} else if (hiddenBy.indexOf('['+ this.key +']') == -1) {
 						els[i].setAttribute('hidden-by', hiddenBy + '['+ this.key +']');
 					}
@@ -2466,7 +2466,7 @@ showHideElements : function (tagName, visibility) {
 				} else if (hiddenBy && hiddenBy.indexOf('['+ this.key +']') > -1) {
 					els[i].setAttribute('hidden-by', hiddenBy.replace('['+ this.key +']', ''));
 				}
-						
+
 			}
 		}
 	}
@@ -2481,28 +2481,28 @@ focus : function() {
 			blurExp.content.className += ' highslide-'+ blurExp.contentType +'-blur';
 			if (blurExp.isImage) {
 				blurExp.content.style.cursor = hs.ieLt7 ? 'hand' : 'pointer';
-				blurExp.content.title = hs.lang.focusTitle;	
-			}	
+				blurExp.content.title = hs.lang.focusTitle;
+			}
 			hs.fireEvent(blurExp, 'onBlur');
 		}
 	}
-	
+
 	// focus this
-	if (this.outline) this.outline.table.style.zIndex 
+	if (this.outline) this.outline.table.style.zIndex
 		= this.wrapper.style.zIndex - 1;
 	this.content.className = 'highslide-'+ this.contentType;
 	if (this.isImage) {
 		this.content.title = hs.lang.restoreTitle;
-		
+
 		if (hs.restoreCursor) {
 			hs.styleRestoreCursor = window.opera ? 'pointer' : 'url('+ hs.graphicsDir + hs.restoreCursor +'), pointer';
 			if (hs.ieLt7 && hs.uaVersion < 6) hs.styleRestoreCursor = 'hand';
 			this.content.style.cursor = hs.styleRestoreCursor;
 		}
 	}
-	hs.focusKey = this.key;	
-	hs.addEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);	
-	hs.fireEvent(this, 'onFocus');	
+	hs.focusKey = this.key;
+	hs.addEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
+	hs.fireEvent(this, 'onFocus');
 },
 moveTo: function(x, y) {
 	this.x.setPos(x);
@@ -2534,9 +2534,9 @@ close : function() {
 	if (!hs.fireEvent(this, 'onBeforeClose')) return;
 	this.isClosing = true;
 	if (this.slideshow && !hs.upcoming) this.slideshow.pause();
-	
+
 	hs.removeEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
-	
+
 	try {
 		if (this.isHtml) this.htmlPrepareClose();
 		this.content.style.cursor = 'default';
@@ -2561,15 +2561,15 @@ close : function() {
 
 htmlPrepareClose : function() {
 	if (hs.geckoMac) { // bad redraws
-		if (!hs.mask) hs.mask = hs.createElement('div', null, 
+		if (!hs.mask) hs.mask = hs.createElement('div', null,
 			{ position: 'absolute' }, hs.container);
-		hs.setStyles(hs.mask, { width: this.x.size +'px', height: this.y.size +'px', 
-			left: this.x.pos +'px', top: this.y.pos +'px', display: 'block' });			
+		hs.setStyles(hs.mask, { width: this.x.size +'px', height: this.y.size +'px',
+			left: this.x.pos +'px', top: this.y.pos +'px', display: 'block' });
 	}
 	if (this.objectType == 'swf') try { hs.$(this.body.id).StopPlay(); } catch (e) {}
-	
-	if (this.objectLoadTime == 'after' && !this.preserveContent) this.destroyObject();		
-	if (this.scrollerDiv && this.scrollerDiv != this.scrollingContent) 
+
+	if (this.objectLoadTime == 'after' && !this.preserveContent) this.destroyObject();
+	if (this.scrollerDiv && this.scrollerDiv != this.scrollingContent)
 		this.scrollerDiv.style.overflow = 'hidden';
 },
 
@@ -2589,26 +2589,26 @@ sleep : function() {
 },
 
 awake : function() {try {
-	
+
 	hs.expanders[this.key] = this;
-	
-	if (!hs.allowMultipleInstances &&hs.focusKey != this.key) {	
+
+	if (!hs.allowMultipleInstances &&hs.focusKey != this.key) {
 		try { hs.expanders[hs.focusKey].close(); } catch (e){}
 	}
-	
+
 	var z = hs.zIndexCounter++, stl = { display: '', zIndex: z };
 	hs.setStyles (this.wrapper, stl);
 	this.isClosing = false;
-	
+
 	var o = this.outline || 0;
 	if (o) {
 		if (!this.outlineWhileAnimating) stl.visibility = 'hidden';
-		hs.setStyles (o.table, stl);		
+		hs.setStyles (o.table, stl);
 	}
 	if (this.slideshow) {
 		this.initSlideshow();
 	}
-		
+
 	this.show();
 } catch (e) {}
 
@@ -2616,14 +2616,14 @@ awake : function() {try {
 },
 
 createOverlay : function (o) {
-	var el = o.overlayId, 
+	var el = o.overlayId,
 		relToVP = (o.relativeTo == 'viewport' && !/panel$/.test(o.position));
 	if (typeof el == 'string') el = hs.getNode(el);
 	if (o.html) el = hs.createElement('div', { innerHTML: o.html });
 	if (!el || typeof el == 'string') return;
 	if (!hs.fireEvent(this, 'onCreateOverlay', { overlay: el })) return;
 	el.style.display = 'block';
-	o.hsId = o.hsId || o.overlayId; 
+	o.hsId = o.hsId || o.overlayId;
 	if (this.transitions[1] == 'crossfade' && this.reuseOverlay(o, el)) return;
 	this.genOverlayBox();
 	var width = o.width && /^[0-9]+(px|%)$/.test(o.width) ? o.width : 'auto';
@@ -2643,7 +2643,7 @@ createOverlay : function (o) {
 		true
 	);
 	if (relToVP) overlay.hsKey = this.key;
-	
+
 	overlay.appendChild(el);
 	hs.extend(overlay, {
 		opacity: 1,
@@ -2652,11 +2652,11 @@ createOverlay : function (o) {
 		dur: (o.fade === 0 || o.fade === false || (o.fade == 2 && hs.ie)) ? 0 : 250
 	});
 	hs.extend(overlay, o);
-	
-		
+
+
 	if (this.gotOverlays) {
 		this.positionOverlay(overlay);
-		if (!overlay.hideOnMouseOut || this.mouseIsOver) 
+		if (!overlay.hideOnMouseOut || this.mouseIsOver)
 			hs.animate(overlay, { opacity: overlay.opacity }, overlay.dur);
 	}
 	hs.push(this.overlays, hs.idCounter - 1);
@@ -2673,25 +2673,25 @@ positionOverlay : function(overlay) {
 			overlay.style.width = '100%';
 	} else
 	if (overlay.parentNode != this.overlayBox) this.overlayBox.appendChild(overlay);
-	if (/left$/.test(p)) overlay.style.left = offX +'px'; 
-	
-	if (/center$/.test(p))	hs.setStyles (overlay, { 
+	if (/left$/.test(p)) overlay.style.left = offX +'px';
+
+	if (/center$/.test(p))	hs.setStyles (overlay, {
 		left: '50%',
 		marginLeft: (offX - Math.round(overlay.offsetWidth / 2)) +'px'
-	});	
-	
+	});
+
 	if (/right$/.test(p)) overlay.style.right = - offX +'px';
-		
-	if (/^leftpanel$/.test(p)) { 
+
+	if (/^leftpanel$/.test(p)) {
 		hs.setStyles(overlay, {
 			right: '100%',
 			marginRight: this.x.cb +'px',
 			top: - this.y.cb +'px',
 			bottom: - this.y.cb +'px',
 			overflow: 'auto'
-		});		 
+		});
 		this.x.p1 = overlay.offsetWidth;
-	
+
 	} else if (/^rightpanel$/.test(p)) {
 		hs.setStyles(overlay, {
 			left: '100%',
@@ -2707,11 +2707,11 @@ positionOverlay : function(overlay) {
 	if (relToVP && overlay.offsetHeight > parOff)
 		overlay.style.height = hs.ieLt7 ? parOff +'px' : '100%';
 
-	if (/^top/.test(p)) overlay.style.top = offY +'px'; 
-	if (/^middle/.test(p))	hs.setStyles (overlay, { 
-		top: '50%', 
+	if (/^top/.test(p)) overlay.style.top = offY +'px';
+	if (/^middle/.test(p))	hs.setStyles (overlay, {
+		top: '50%',
 		marginTop: (offY - Math.round(overlay.offsetHeight / 2)) +'px'
-	});	
+	});
 	if (/^bottom/.test(p)) overlay.style.bottom = - offY +'px';
 	if (/^above$/.test(p)) {
 		hs.setStyles(overlay, {
@@ -2722,7 +2722,7 @@ positionOverlay : function(overlay) {
 			width: 'auto'
 		});
 		this.y.p1 = overlay.offsetHeight;
-	
+
 	} else if (/^below$/.test(p)) {
 		hs.setStyles(overlay, {
 			position: 'relative',
@@ -2737,7 +2737,7 @@ positionOverlay : function(overlay) {
 	}
 },
 
-getOverlays : function() {	
+getOverlays : function() {
 	this.getInline(['heading', 'caption'], true);
 	this.getNumber();
 	if (this.caption) hs.fireEvent(this, 'onAfterGetCaption');
@@ -2767,7 +2767,7 @@ genOverlayBox : function() {
 			className: this.wrapperClassName
 		}, {
 			position : 'absolute',
-			width: (this.x.size || (this.useBox ? this.width : null) 
+			width: (this.x.size || (this.useBox ? this.width : null)
 				|| this.x.full) +'px',
 			height: (this.y.size || this.y.full) +'px',
 			visibility : 'hidden',
@@ -2779,11 +2779,11 @@ genOverlayBox : function() {
 	);
 },
 sizeOverlayBox : function(doWrapper, doPanels) {
-	var overlayBox = this.overlayBox, 
+	var overlayBox = this.overlayBox,
 		x = this.x,
 		y = this.y;
 	hs.setStyles( overlayBox, {
-		width: x.size +'px', 
+		width: x.size +'px',
 		height: y.size +'px'
 	});
 	if (doWrapper || doPanels) {
@@ -2865,11 +2865,11 @@ createFullExpand : function () {
 		}
 	);
 	if (!hs.fireEvent(this, 'onCreateFullExpand')) return;
-	
-	this.createOverlay({ 
-		overlayId: this.fullExpandLabel, 
-		position: hs.fullExpandPosition, 
-		hideOnMouseOut: true, 
+
+	this.createOverlay({
+		overlayId: this.fullExpandLabel,
+		position: hs.fullExpandPosition,
+		hideOnMouseOut: true,
 		opacity: hs.fullExpandOpacity
 	});
 },
@@ -2878,17 +2878,17 @@ doFullExpand : function () {
 	try {
 		if (!hs.fireEvent(this, 'onDoFullExpand')) return;
 		if (this.fullExpandLabel) hs.discardElement(this.fullExpandLabel);
-		
+
 		this.focus();
 		var xSize = this.x.size;
 		this.resizeTo(this.x.full, this.y.full);
-		
+
 		var xpos = this.x.pos - (this.x.size - xSize) / 2;
 		if (xpos < hs.marginLeft) xpos = hs.marginLeft;
-		
+
 		this.moveTo(xpos, this.y.pos);
 		this.doShowHide('hidden');
-	
+
 	} catch (e) {
 		this.error(e);
 	}
@@ -2897,24 +2897,24 @@ doFullExpand : function () {
 
 afterClose : function () {
 	this.a.className = this.a.className.replace('highslide-active-anchor', '');
-	
-	this.doShowHide('visible');	
-	
+
+	this.doShowHide('visible');
+
 	if (this.isHtml && this.preserveContent
 			 && this.transitions[1] != 'crossfade') {
 		this.sleep();
 	} else {
 		if (this.outline && this.outlineWhileAnimating) this.outline.destroy();
-	
+
 		hs.discardElement(this.wrapper);
 	}
 	if (hs.mask) hs.mask.style.display = 'none';
 	this.destroyOverlays();
 	if (!hs.viewport.childNodes.length) hs.viewport.style.display = 'none';
-	
+
 	if (this.dimmingOpacity) hs.undim(this.key);
 	hs.fireEvent(this, 'onAfterClose');
-	hs.expanders[this.key] = null;		
+	hs.expanders[this.key] = null;
 	hs.reOrder();
 }
 
@@ -2951,7 +2951,7 @@ run : function () {
 			catch (e) { this.onError(); }
 		}
 	}
-	var pThis = this; 
+	var pThis = this;
 	xhr.onreadystatechange = function() {
 		if(pThis.xhr.readyState == 4) {
 			if (pThis.id) pThis.getElementContent();
@@ -2960,7 +2960,7 @@ run : function () {
 	};
 	var src = this.src;
 	this.xhr = xhr;
-	if (hs.forceAjaxReload) 
+	if (hs.forceAjaxReload)
 		src = src.replace(/$/, (/\?/.test(src) ? '&' : '?') +'dummy='+ (new Date()).getTime());
 	xhr.open('GET', src, true);
 	xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -2971,10 +2971,10 @@ run : function () {
 getElementContent : function() {
 	hs.init();
 	var attribs = window.opera || hs.ie6SSL ? { src: 'about:blank' } : null;
-	
-	this.iframe = hs.createElement('iframe', attribs, 
+
+	this.iframe = hs.createElement('iframe', attribs,
 		{ position: 'absolute', top: '-9999px' }, hs.container);
-		
+
 	this.loadHTML();
 },
 
@@ -3003,7 +3003,7 @@ loadHTML : function() {
 		} else {
 			regBody = /(<body[^>]*>|<\/body>)/ig;
 			if (regBody.test(s)) s = s.split(regBody)[hs.ieLt9 ? 1 : 2];
-			
+
 		}
 	}
 	hs.getElementByClass(this.content, 'DIV', 'highslide-body').innerHTML = s;
@@ -3022,9 +3022,9 @@ hs.Slideshow = function (expKey, options) {
 };
 hs.Slideshow.prototype = {
 getControls: function() {
-	this.controls = hs.createElement('div', { innerHTML: hs.replaceLang(hs.skin.controls) }, 
+	this.controls = hs.createElement('div', { innerHTML: hs.replaceLang(hs.skin.controls) },
 		null, hs.container);
-	
+
 	var buttons = ['play', 'pause', 'previous', 'next', 'move', 'full-expand', 'close'];
 	this.btn = {};
 	var pThis = this;
@@ -3038,9 +3038,9 @@ getControls: function() {
 checkFirstAndLast: function() {
 	if (this.repeat || !this.controls) return;
 	var exp = hs.expanders[this.expKey],
-		cur = exp.getAnchorIndex(), 
+		cur = exp.getAnchorIndex(),
 		re = /disabled$/;
-	if (cur == 0) 
+	if (cur == 0)
 		this.disable('previous');
 	else if (re.test(this.btn.previous.getElementsByTagName('a')[0].className))
 		this.enable('previous');
@@ -3076,8 +3076,8 @@ play: function(wait) {
 		this.btn.play.style.display = 'none';
 		this.btn.pause.style.display = '';
 	}
-	
-	this.autoplay = true;	
+
+	this.autoplay = true;
 	if (!wait) hs.next(this.expKey);
 },
 pause: function() {
@@ -3085,7 +3085,7 @@ pause: function() {
 		this.btn.pause.style.display = 'none';
 		this.btn.play.style.display = '';
 	}
-	
+
 	clearTimeout(this.autoplay);
 	this.autoplay = null;
 },
@@ -3116,11 +3116,11 @@ hs.Thumbstrip = function(slideshow) {
 		exp.createOverlay(options);
 		hs.setStyles(dom.parentNode, { overflow: 'hidden' });
 	};
-	
-	function scroll (delta) {	
+
+	function scroll (delta) {
 		selectThumb(undefined, Math.round(delta * dom[isX ? 'offsetWidth' : 'offsetHeight'] * 0.7));
 	};
-	
+
 	function selectThumb (i, scrollBy) {
 		if (i === undefined) for (var j = 0; j < group.length; j++) {
 			if (group[j] == hs.expanders[slideshow.expKey].a) {
@@ -3144,17 +3144,17 @@ hs.Thumbstrip = function(slideshow) {
 			mgnRight = 20;
 		if (scrollBy !== undefined) {
 			tblPos = curTblPos - scrollBy;
-			
+
 			if (minTblPos > 0) minTblPos = 0;
 			if (tblPos > 0) tblPos = 0;
 			if (tblPos < minTblPos) tblPos = minTblPos;
-			
-	
+
+
 		} else {
 			for (var j = 0; j < as.length; j++) as[j].className = '';
 			active.className = 'highslide-active-anchor';
 			var activeLeft = i > 0 ? as[i - 1].parentNode[offsetLeft] : cell[offsetLeft],
-				activeRight = cell[offsetLeft] + cell[offsetWidth] + 
+				activeRight = cell[offsetLeft] + cell[offsetWidth] +
 					(as[i + 1] ? as[i + 1].parentNode[offsetWidth] : 0);
 			if (activeRight > overlayWidth - curTblPos) tblPos = overlayWidth - activeRight;
 			else if (activeLeft < -curTblPos) tblPos = -activeLeft;
@@ -3164,9 +3164,9 @@ hs.Thumbstrip = function(slideshow) {
 		hs.animate(marker, isX ? { left: markerPos } : { top: markerPos }, null, 'easeOutQuad');
 		scrollUp.style.display = tblPos < 0 ? 'block' : 'none';
 		scrollDown.style.display = (tblPos > minTblPos)  ? 'block' : 'none';
-		
+
 	};
-	
+
 
 	// initialize
 	var group = hs.anchors.groups[hs.expanders[slideshow.expKey].slideshowGroup || 'none'],
@@ -3214,8 +3214,8 @@ hs.Thumbstrip = function(slideshow) {
 	if (!floatMode) {
 		scrollUp.onclick = function () { scroll(-1); };
 		scrollDown.onclick = function() { scroll(1); };
-		hs.addEventListener(tbody, document.onmousewheel !== undefined ? 
-				'mousewheel' : 'DOMMouseScroll', function(e) {        
+		hs.addEventListener(tbody, document.onmousewheel !== undefined ?
+				'mousewheel' : 'DOMMouseScroll', function(e) {
 			var delta = 0;
 	        e = e || window.event;
 	        if (e.wheelDelta) {
@@ -3229,7 +3229,7 @@ hs.Thumbstrip = function(slideshow) {
 			e.returnValue = false;
 		});
 	}
-	
+
 	return {
 		add: add,
 		selectThumb: selectThumb
@@ -3255,10 +3255,10 @@ hs.addEventListener(window, 'load', hs.ready);
 // set handlers
 hs.addEventListener(document, 'ready', function() {
 	if (hs.expandCursor || hs.dimmingOpacity) {
-		var style = hs.createElement('style', { type: 'text/css' }, null, 
+		var style = hs.createElement('style', { type: 'text/css' }, null,
 			document.getElementsByTagName('HEAD')[0]);
-			
-		function addRule(sel, dec) {		
+
+		function addRule(sel, dec) {
 			if (hs.ie && hs.uaVersion < 9) {
 				var last = document.styleSheets[document.styleSheets.length - 1];
 				if (typeof(last.addRule) == "object") last.addRule(sel, dec);
@@ -3270,7 +3270,7 @@ hs.addEventListener(document, 'ready', function() {
 			return 'expression( ( ( ignoreMe = document.documentElement.'+ prop +
 				' ? document.documentElement.'+ prop +' : document.body.'+ prop +' ) ) + \'px\' );';
 		}
-		if (hs.expandCursor) addRule ('.highslide img', 
+		if (hs.expandCursor) addRule ('.highslide img',
 			'cursor: url('+ hs.graphicsDir + hs.expandCursor +'), pointer !important;');
 		addRule ('.highslide-viewport-size',
 			hs.ie && (hs.uaVersion < 7 || document.compatMode == 'BackCompat') ?
