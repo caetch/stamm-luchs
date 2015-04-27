@@ -384,7 +384,7 @@ aside a.selected {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     header {
         padding-left: 0%;
     }
