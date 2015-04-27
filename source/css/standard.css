@@ -1,0 +1,471 @@
+@font-face {
+    font-family: 'bdp';
+    src: url('../../../res/font/akachen-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -o-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+/* TEMPLATE */
+
+#wrapper {
+    margin: 0 auto;
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+section {
+    color: rgba(50, 50, 50, 1);
+    font-size: 0px;
+    line-height: 22px;
+    margin: 0 auto;
+    width: 60%;
+    overflow: hidden;
+    padding: 20px 0 20px 60px;
+    position: relative;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.86);
+}
+
+section b {
+    font-weight: 400;
+}
+
+section a {
+    color: #3b70d3;
+    text-decoration: none;
+}
+
+section a:hover {
+    color: #112a58;
+}
+
+main {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 200;
+    vertical-align: top;
+    padding-right: 50px;
+    padding-top: 5px;
+    text-align: left;
+    width: 73%;
+}
+
+hr {
+    border: none;
+    margin: 3px 0;
+    display: block;
+    height: 1px;
+    margin-right: 30%;
+    background-color: rgb(101, 101, 101);
+}
+
+menu {
+    display: inline-block;
+    font-size: 16px;
+    height: auto;
+    width: 25%;
+    vertical-align: top;
+}
+
+menu h1 {
+    font-size: 30px;
+    font-weight: 400;
+    font-family: 'Amatic SC', cursive;
+    line-height: 40px;
+}
+
+menu a {
+    display: block;
+}
+
+main h2 {
+    font-weight: 300;
+    color: #606060;
+}
+
+#pagelogo {
+    float: right;
+    margin-left: 65%;
+    margin-top: -90px;
+    position: absolute;
+    z-index: 120;
+}
+
+.eingeruckt {
+    margin-left: 40px;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: block;
+}
+/* HEADER */
+
+header {
+    font-size: 20px;
+    overflow: hidden;
+    position: relative;
+    font-weight: 400;
+    margin: 0 auto;
+    padding-left: 20%;
+    padding-top: 90px;
+    color: rgba(60, 60, 60, 0.77);
+    background-image: url('../../../res/layout/background.jpg');
+    background-size: cover;
+    background-position: top 70% right 100%;
+    background-repeat: no-repeat;
+}
+
+h1,
+h2,
+handwritten {
+    font-family: bdp;
+}
+
+header h1 {
+    font-size: 50px;
+    line-height: 45px;
+    margin-bottom: 2px;
+    background-color: rgb(255, 202, 40);
+}
+
+header h2 {
+    margin-bottom: 4px;
+    background-color: rgb(255, 219, 109);
+}
+
+header h1,
+header h2 {
+    display: inline-block;
+    padding: 12px 12px 8px;
+}
+/* ARTICLE */
+
+article {
+    border: 1px solid #d6d6d6;
+    padding: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+article:hover {
+    background: rgba(255, 251, 230, 0.53);
+}
+
+article date {
+    position: absolute;
+    color: white;
+    background-color: rgb(255, 202, 40);
+    padding: 10px 0px;
+    width: 60px;
+    margin-top: -21px;
+    margin-left: -80px;
+    text-align: center;
+}
+
+article date span {
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+article h1 {
+    color: rgba(31, 46, 69, 0.77);
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+article .article-author {
+    background-image: url('../../../res/layout/user.png');
+    background-position: left center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    padding: 5px 0 3px 25px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+article .article-author span {
+    color: gray;
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+article hr {
+    background-color: rgb(255, 202, 40);
+    margin: 0 -20px 0 -20px !important;
+    height: 2px;
+}
+
+article p {
+    padding: 15px 0;
+}
+
+article img {
+    border: 8px solid #FFF !important;
+    box-shadow: 0 0 2px #000;
+    position: relative;
+    width: 100%;
+}
+
+article img + span {
+    display: block;
+    font-size: 13px;
+    line-height: 13px;
+    margin-top: 3px;
+}
+
+.posthead span {
+    height: 21px;
+    display: block;
+    font-size: 16px;
+    border-bottom: 1px solid #C1CDDB;
+}
+
+.posthead span.tag {
+    margin-right: 317px;
+}
+.posthead span dd.right {
+    border-right: 0px solid #C1CDDB;
+    font-size: 17px;
+    float: right;
+}
+.posthead span dd {
+    display: inline;
+    padding: 0px 8px 0px 5px;
+    border-right: 1px solid #C1CDDB;
+}
+/* NAVIGATION */
+
+nav {
+    font-family: "Amatic SC", cursive;
+    background-color: rgb(39, 86, 182);
+    width: 100%;
+    padding: 0 20%;
+}
+
+nav ul {
+    font-size: 0px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    position: relative;
+    z-index: 10;
+}
+
+nav ul li:hover {
+    background-color: #224a9c;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 14px;
+    font-size: 29px;
+    text-align: justify;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: #ffe595;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul {
+    display: none;
+    padding: 0;
+    position: absolute;
+    background-color: #224a9c;
+    z-index: 30;
+}
+
+nav ul li ul li {
+    list-style-type: none;
+    width: 190px;
+    z-index: 40;
+}
+
+nav ul li ul li:hover {
+    background-color: #1e386f;
+}
+
+nav ul li.selected > a,
+nav ul li.selected:hover > a {
+    color: #FFCA28;
+}
+
+.fixed-navigation {
+    top: 0;
+    position: fixed;
+    z-index: 50;
+    margin-bottom: 50px
+}
+aside {
+    text-align: center;
+}
+
+aside a {
+    margin: 0 6px;
+}
+
+aside a.selected {
+    font-weight: bold;
+}
+
+.fb-like {
+    padding: 3px 0 0 3px;
+}
+
+@media (max-width: 1300px) {
+    header {
+        padding-left: 10%;
+    }
+    section {
+        width: 80%;
+    }
+    nav {
+        padding: 0 10%;
+    }
+}
+
+@media (max-width: 1000px) {
+    header {
+        padding-left: 5%;
+    }
+    section {
+        width: 90%;
+    }
+    nav {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 800px) {
+    header {
+        padding-left: 0%;
+    }
+    section {
+        width: 100%;
+    }
+    nav {
+        padding: 0;
+    }
+    main {
+        width: 100%;
+        display: block;
+        padding-left: 5px;
+    }
+    menu {
+        width: 100%;
+        display: block
+    }
+    #pagelogo {
+        display: none;
+    }
+    header h1,
+    header h2 {
+        width: 100%;
+    }
+    section {
+        padding: 0px;
+        padding-bottom: 30px;
+    }
+    main {
+        padding: 25px;
+    }
+    article date {
+        display: inline-block;
+        width: 60px;
+        margin: 0;
+        position: relative;
+        vertical-align: top;
+        margin: -20px 0 10px -20px;
+    }
+    article date span {
+        padding: 0 5px;
+        display: block;
+    }
+    article h1 {
+        display: inline-block;
+        width: 80%;
+        padding-left: 5px;
+        margin-top: -7px;
+        vertical-align: middle;
+    }
+    menu h1 {
+        padding-left: 25px;
+    }
+    menu a {
+        background-color: rgba(255, 219, 109, 0.31);
+        text-align: center;
+        display: block;
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.11);
+    }
+    menu h1 + a,
+    menu br + a {
+        border-top: 1px solid rgba(128, 128, 128, 0.11);
+    }
+    .social-networks {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+     main {
+        padding: 10px;
+    }
+    nav li,
+    nav ul li ul li,
+    nav ul li ul {
+        width: 100%;
+    }
+    nav ul li:hover > ul {
+        display: block;
+        position: relative;
+    }
+}
