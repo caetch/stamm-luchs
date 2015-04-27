@@ -20,3 +20,8 @@ grunt
 ```
    
 will create a new folder `/bin` which contains all files that need to be uploaded.
+
+## Warning
+Not included are resources as photos and music.   
+`res/music` and `res/photos`
+Those need to be manually copied into `source/res` since they're too large to check into this repository.
