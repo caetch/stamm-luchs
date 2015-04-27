@@ -1,3 +1,9 @@
 bdp/music/
 stamm/photos/
 content/docs/
+/source/res/music/
+/source/res/photos/
+/source/res/docs/
+/bin/
+/node_modules/
+/npm-debug.log
