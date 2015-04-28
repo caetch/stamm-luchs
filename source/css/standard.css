@@ -4,7 +4,6 @@
     font-weight: normal;
     font-style: normal
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,14 +24,11 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 html {
     background-color: white;
     font-family: 'Lato', sans-serif;
 }
-
-html,
-body {
+html, body {
     height: 100%;
     width: 100%;
 }
@@ -44,7 +40,6 @@ body {
     min-height: 100%;
     width: 100%;
 }
-
 section {
     color: rgba(50, 50, 50, 1);
     font-size: 0px;
@@ -52,25 +47,21 @@ section {
     margin: 0 auto;
     width: 60%;
     overflow: hidden;
-    padding: 20px 0 20px 60px;
+    padding: 20px 0 20px 0;
     position: relative;
     text-align: left;
     background: rgba(255, 255, 255, 0.86);
 }
-
 section b {
     font-weight: 400;
 }
-
 section a {
     color: #3b70d3;
     text-decoration: none;
 }
-
 section a:hover {
     color: #112a58;
 }
-
 main {
     display: inline-block;
     font-size: 19px;
@@ -81,7 +72,6 @@ main {
     text-align: left;
     width: 73%;
 }
-
 hr {
     border: none;
     margin: 3px 0;
@@ -90,7 +80,6 @@ hr {
     margin-right: 30%;
     background-color: rgb(101, 101, 101);
 }
-
 menu {
     display: inline-block;
     font-size: 16px;
@@ -98,23 +87,20 @@ menu {
     width: 25%;
     vertical-align: top;
 }
-
 menu h1 {
     font-size: 30px;
     font-weight: 400;
     font-family: 'Amatic SC', cursive;
     line-height: 40px;
 }
-
 menu a {
     display: block;
+    font-size: 17px;
 }
-
 main h2 {
     font-weight: 300;
     color: #606060;
 }
-
 #pagelogo {
     float: right;
     margin-left: 65%;
@@ -122,11 +108,9 @@ main h2 {
     position: absolute;
     z-index: 120;
 }
-
 .eingeruckt {
     margin-left: 40px;
 }
-
 .clearfix:after {
     clear: both;
     content: ".";
@@ -134,14 +118,12 @@ main h2 {
     height: 0;
     visibility: hidden;
 }
-
 .clearfix {
     display: block;
 }
 /* HEADER */
 
 header {
-    font-size: 20px;
     overflow: hidden;
     position: relative;
     font-weight: 400;
@@ -154,43 +136,38 @@ header {
     background-position: top 70% right 100%;
     background-repeat: no-repeat;
 }
-
-h1,
-h2,
-handwritten {
+h1, h2, handwritten {
     font-family: bdp;
+    font-weight: normal;
 }
-
 header h1 {
     font-size: 50px;
     line-height: 45px;
     margin-bottom: 2px;
     background-color: rgb(255, 202, 40);
 }
-
 header h2 {
     margin-bottom: 4px;
     background-color: rgb(255, 219, 109);
 }
-
-header h1,
-header h2 {
+header h1, header h2 {
     display: inline-block;
     padding: 12px 12px 8px;
 }
 /* ARTICLE */
 
+.blog {
+    padding-left: 60px;
+}
 article {
     border: 1px solid #d6d6d6;
     padding: 20px;
     margin-bottom: 50px;
     width: 100%;
 }
-
 article:hover {
     background: rgba(255, 251, 230, 0.53);
 }
-
 article date {
     position: absolute;
     color: white;
@@ -201,19 +178,16 @@ article date {
     margin-left: -80px;
     text-align: center;
 }
-
 article date span {
     font-weight: bold;
     text-align: center;
     display: block;
 }
-
 article h1 {
     color: rgba(31, 46, 69, 0.77);
-    font-weight: 400;
     margin-bottom: 4px;
+    font-size: 25px;
 }
-
 article .article-author {
     background-image: url('../../../res/layout/user.png');
     background-position: left center;
@@ -223,44 +197,47 @@ article .article-author {
     display: block;
     margin-bottom: 10px;
 }
-
 article .article-author span {
     color: gray;
     font-size: 13px;
     padding-left: 5px;
 }
 
+article .article-author span.location {
+    float: right;
+    background-image: url('../../../res/layout/map.png');
+    background-position: left center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    padding: 0 0 0 25px;
+    font-size: 19px;
+}
 article hr {
     background-color: rgb(255, 202, 40);
     margin: 0 -20px 0 -20px !important;
     height: 2px;
 }
-
 article p {
     padding: 15px 0;
 }
-
 article img {
     border: 8px solid #FFF !important;
     box-shadow: 0 0 2px #000;
     position: relative;
-    width: 100%;
+    width: 80%;
 }
-
 article img + span {
     display: block;
     font-size: 13px;
     line-height: 13px;
     margin-top: 3px;
 }
-
 .posthead span {
     height: 21px;
     display: block;
     font-size: 16px;
     border-bottom: 1px solid #C1CDDB;
 }
-
 .posthead span.tag {
     margin-right: 317px;
 }
@@ -282,22 +259,18 @@ nav {
     width: 100%;
     padding: 0 20%;
 }
-
 nav ul {
     font-size: 0px;
 }
-
 nav ul li {
     display: inline-block;
     list-style-type: none;
     position: relative;
     z-index: 10;
 }
-
 nav ul li:hover {
     background-color: #224a9c;
 }
-
 nav ul li a {
     color: white;
     padding: 10px 14px;
@@ -306,15 +279,12 @@ nav ul li a {
     text-decoration: none;
     display: inline-block;
 }
-
 nav ul li a:hover {
     color: #ffe595;
 }
-
 nav ul li:hover ul {
     display: block;
 }
-
 nav ul li ul {
     display: none;
     padding: 0;
@@ -322,22 +292,17 @@ nav ul li ul {
     background-color: #224a9c;
     z-index: 30;
 }
-
 nav ul li ul li {
     list-style-type: none;
     width: 190px;
     z-index: 40;
 }
-
 nav ul li ul li:hover {
     background-color: #1e386f;
 }
-
-nav ul li.selected > a,
-nav ul li.selected:hover > a {
+nav ul li.selected > a, nav ul li.selected:hover > a {
     color: #FFCA28;
 }
-
 .fixed-navigation {
     top: 0;
     position: fixed;
@@ -347,19 +312,29 @@ nav ul li.selected:hover > a {
 aside {
     text-align: center;
 }
-
 aside a {
     margin: 0 6px;
 }
-
 aside a.selected {
     font-weight: bold;
 }
-
-.fb-like {
-    padding: 3px 0 0 3px;
+.social-networks {
+    padding-top: 12px;
 }
-
+.social-networks img{
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    vertical-align: -12px;
+}
+.social-networks a {
+    color: white !important;
+}
 @media (max-width: 1300px) {
     header {
         padding-left: 10%;
@@ -371,7 +346,6 @@ aside a.selected {
         padding: 0 10%;
     }
 }
-
 @media (max-width: 1000px) {
     header {
         padding-left: 5%;
@@ -383,10 +357,14 @@ aside a.selected {
         padding: 0 5%;
     }
 }
-
 @media (max-width: 850px) {
+    .blog {
+        padding: 0;
+    }
     header {
         padding-left: 0%;
+        padding-top: 0;
+        background: none;
     }
     section {
         width: 100%;
@@ -394,25 +372,33 @@ aside a.selected {
     nav {
         padding: 0;
     }
+    nav ul li a {
+        color: white;
+        padding: 8px 12px;
+        font-size: 27px;
+    }
     main {
         width: 100%;
         display: block;
         padding-left: 5px;
     }
-    menu {
-        width: 100%;
-        display: block
-    }
     #pagelogo {
         display: none;
     }
-    header h1,
-    header h2 {
+    header h1, header h2 {
         width: 100%;
+        margin-bottom: 0px;
+    }
+    header h1 {
+        font-size: 35px;
+        line-height: 30px;
+    }
+    header h2 {
+        font-size: 25px;
+        line-height: 21px;
     }
     section {
-        padding: 0px;
-        padding-bottom: 30px;
+        padding: 0;
     }
     main {
         padding: 25px;
@@ -436,32 +422,39 @@ aside a.selected {
         margin-top: -7px;
         vertical-align: middle;
     }
+    menu {
+        background-color: rgba(59, 112, 211, 1.0);
+        width: 100%;
+        display: block;
+        padding-bottom: 25px;
+        border-top: 1px solid rgba(50, 50, 50, 0.6);
+    }
     menu h1 {
         padding-left: 25px;
+        color: white;
     }
     menu a {
-        background-color: rgba(255, 219, 109, 0.31);
+        background-color: rgb(255, 202, 40);
         text-align: center;
         display: block;
-        padding: 12px 10px;
-        border-bottom: 1px solid rgba(128, 128, 128, 0.11);
+        color: rgba(60, 60, 60, 0.77);
+        padding: 14px 10px;
+        font-size: 19px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.31);
     }
-    menu h1 + a,
-    menu br + a {
-        border-top: 1px solid rgba(128, 128, 128, 0.11);
+    menu h1 + a, menu br + a {
+        border-top: 1px solid rgba(128, 128, 128, 0.31);
     }
-    .social-networks {
-        display: none;
+    .social-networks a{
+        text-align: center;
+        background-color: #006eae;
     }
 }
-
 @media (max-width: 500px) {
-     main {
-        padding: 10px;
+    main {
+        padding: 20px;
     }
-    nav li,
-    nav ul li ul li,
-    nav ul li ul {
+    nav li, nav ul li ul li, nav ul li ul, nav a {
         width: 100%;
     }
     nav ul li:hover > ul {
