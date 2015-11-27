@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
     //Generator
     var tempFile;
-    var mainFiles = ['bdp', 'history', 'impressum', 'index-2013', 'index-2014', 'index', 'kontakt', 'neu', 'stamm'];
+    var mainFiles = ['bdp', 'history', 'impressum', 'index-2011', 'index-2013', 'index-2014', 'index', 'kontakt', 'neu', 'stamm','bild2015', 'bild2014', 'bild2013', 'bild2012', 'bild2011'];
     var bdpFiles = ['fahrt', 'jurte', 'kluft', 'kohte', 'musik', 'stufen', 'versprechen', 'musiksammlung'];
     var stammFiles = ['equipment', 'gruppenstunden', 'member', 'pfadfinder', 'rr', 'termine', 'woelflinge'];
 

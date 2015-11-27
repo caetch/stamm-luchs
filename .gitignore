@@ -1,9 +1,7 @@
-bdp/music/
-stamm/photos/
-content/docs/
+/source/res/docs/
+/source/res/galerie/
 /source/res/music/
 /source/res/photos/
-/source/res/docs/
 /bin/
 /node_modules/
 /npm-debug.log
